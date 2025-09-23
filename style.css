@@ -1,0 +1,28 @@
+:root{
+  --bg:#0f3e2f;      /* سبز تیره */
+  --fg:#ffffff;      /* سفید */
+  --fg-dim:#cfe3db;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:IRANSans,Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--fg);text-decoration:none}
+a.active{border-bottom:2px solid var(--fg)}
+
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;padding:18px 24px;border-bottom:1px solid #0a2a20;
+}
+.brand{font-weight:800;letter-spacing:.5px}
+.nav nav{display:flex;gap:18px}
+
+.hero{
+  min-height:60vh;display:grid;place-items:center;text-align:center;padding:64px 16px;
+}
+.hero h1{font-size:64px;margin:0 0 12px}
+.hero p{color:var(--fg-dim);margin:0}
+
+.container{max-width:960px;margin-inline:auto;padding:40px 20px;line-height:1.9;color:var(--fg-dim)}
+.container h1{color:var(--fg);margin-top:0}
+
+.footer{display:flex;justify-content:center;padding:28px 16px;border-top:1px solid #0a2a20;color:#a7c5bb}
