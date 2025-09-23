@@ -1,30 +1,33 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>درباره SONNEH</title>
+  <title>SONNEH — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
-  <header class="nav">
-    <div class="brand">SONNEH</div>
-    <nav>
-      <a href="index.html">خانه</a>
-      <a class="active" href="about.html">درباره</a>
-      <a href="contact.html">تماس</a>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="index.html">SONNEH</a>
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="container">
-    <h1>درباره سونه</h1>
-    <p>سونه (Soneh) در فارسی عامیانه به «خانه/سَکَن» نزدیک است؛
-       تمرکز ما طراحی فضا و تجربه‌ی زیست است.</p>
+  <main class="hero">
+    <h1 class="title">SONNEH</h1>
+    <p class="tagline">Space • Calm • Design — Home-focused interiors</p>
   </main>
 
   <footer class="footer">
-    <small>© <span id="y"></span> SONNEH</small>
+    <p>© SONNEH 2025</p>
   </footer>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
