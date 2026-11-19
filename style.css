@@ -1,5 +1,5 @@
 :root{
-  --bg:#0f3f35;      /* deep green */
+  --bg:#053931;      /* deep green */
   --fg:#ffffff;
   --muted:#cfe5de;
   --accent:#b9f5e6;
@@ -15,7 +15,7 @@ body{
 }
 
 /* Top Nav */
-.topbar{position:sticky;top:0;background:rgba(15,63,53,.9);backdrop-filter:saturate(180%) blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar{position:sticky;top:0;background:rgba(5,57,49,.9);backdrop-filter:saturate(180%) blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
 .brand{font-weight:800;letter-spacing:.04em;color:var(--fg);text-decoration:none}
 .menu{display:flex;gap:18px;list-style:none;margin:0;padding:0}
@@ -36,4 +36,7 @@ body{
 .footer{border-top:1px solid rgba(255,255,255,.08);text-align:center;color:var(--muted);padding:22px}
 @media (max-width:640px){
   .title{font-size:48px}
+}
+a {
+  color: var(--fg);
 }
