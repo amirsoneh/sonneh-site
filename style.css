@@ -167,12 +167,10 @@ body::after {
   gap: 24px;
 }
 
-/* HEADER LOGO */
+/* HEADER LOGO — SONNEH ONLY */
 
 .brand {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: inline-block;
 
   color: var(--fg);
   text-decoration: none;
@@ -181,14 +179,6 @@ body::after {
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;
-}
-
-.brand::after {
-  content: "Design Studio";
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0;
-  margin-top: 4px;
 }
 
 /* NAVIGATION */
@@ -250,6 +240,8 @@ body::after {
 .hero .title::after {
   content: none !important;
 }
+
+/* Existing Design Studio in HTML */
 
 .hero h2,
 .hero .subtitle,
@@ -406,10 +398,6 @@ a {
 
   .brand {
     font-size: 20px;
-  }
-
-  .brand::after {
-    font-size: 9px;
   }
 
   .menu {
