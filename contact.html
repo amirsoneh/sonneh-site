@@ -7,164 +7,24 @@
   <meta name="theme-color" content="#00512f">
 
   <title>Contact — SONNEH</title>
-
-  <meta name="description"
-    content="Contact SONNEH Design Studio in Perth for design projects, creative collaborations and enquiries.">
+  <meta name="description" content="Contact SONNEH Design Studio in Perth for design projects, creative collaborations and enquiries.">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <style>
-    .contact-layout {
-      width: 100%;
-      max-width: 620px;
-      flex: 1;
-      margin: 0 auto;
-      padding: 25px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .contact-layout h1 {
-      font-size: clamp(36px, 5vw, 50px);
-      font-weight: 800;
-      letter-spacing: -.035em;
-      margin: 0 0 10px;
-    }
-
-    .contact-intro {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin: 0 0 22px;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 12px;
-    }
-
-    .form-field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      display: block;
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 5px;
-      background: rgba(255,255,255,.07);
-      color: white;
-      font: inherit;
-      font-size: 14px;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: rgba(255,255,255,.55);
-    }
-
-    .contact-form textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: 2px solid white;
-      outline-offset: 2px;
-    }
-
-    .contact-form button {
-      width: 100%;
-      padding: 13px 20px;
-      border: none;
-      border-radius: 5px;
-      background: white;
-      color: #00512f;
-      font: inherit;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity .2s ease;
-    }
-
-    .contact-form button:hover {
-      opacity: .88;
-    }
-
-    .contact-form button:disabled {
-      opacity: .6;
-      cursor: wait;
-    }
-
-    .form-status {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.5;
-      color: white;
-    }
-
-    .form-status:empty {
-      display: none;
-    }
-
-    .contact-details {
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .contact-details p {
-      margin: 0 0 7px;
-    }
-
-    .contact-details a {
-      color: white;
-      text-underline-offset: 4px;
-    }
-
-    @media (max-width: 640px) {
-      .contact-layout {
-        padding: 25px 20px;
-      }
-
-      .contact-layout h1 {
-        font-size: 38px;
-      }
-
-      .contact-intro {
-        margin-bottom: 20px;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
   <header class="topbar">
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="index.html">SONNEH</a>
 
       <ul class="menu">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="about.html">About</a>
-        </li>
-        <li>
-          <a href="contact.html" class="active">
-            Contact
-          </a>
-        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -174,9 +34,8 @@
     <h1>Let's connect.</h1>
 
     <p class="contact-intro">
-      For project enquiries, creative collaborations
-      or general conversations, we'd love to hear
-      from you.
+      For project enquiries, creative collaborations or general
+      conversations, we'd love to hear from you.
     </p>
 
     <form
@@ -194,7 +53,8 @@
           type="text"
           placeholder="Full name"
           autocomplete="name"
-          required>
+          required
+        >
       </div>
 
       <div class="form-field">
@@ -205,7 +65,8 @@
           type="email"
           placeholder="you@example.com"
           autocomplete="email"
-          required>
+          required
+        >
       </div>
 
       <div class="form-field">
@@ -213,14 +74,17 @@
         <textarea
           id="message"
           name="message"
+          rows="3"
           placeholder="Tell us a little about your enquiry..."
-          required></textarea>
+          required
+        ></textarea>
       </div>
 
       <input
         type="hidden"
         name="_subject"
-        value="New SONNEH Website Enquiry">
+        value="New SONNEH Website Enquiry"
+      >
 
       <button id="send-button" type="submit">
         Send enquiry
@@ -230,17 +94,15 @@
         id="form-status"
         class="form-status"
         role="status"
-        aria-live="polite"></p>
+        aria-live="polite"
+      ></p>
 
     </form>
 
     <div class="contact-details">
-
       <p>
         Prefer email?
-        <a href="mailto:info@sonneh.com">
-          info@sonneh.com
-        </a>
+        <a href="mailto:info@sonneh.com">info@sonneh.com</a>
       </p>
 
       <p>
@@ -248,13 +110,11 @@
         <a
           href="https://www.instagram.com/sonneh_design/"
           target="_blank"
-          rel="noopener noreferrer">
-          @sonneh_design
-        </a>
+          rel="noopener noreferrer"
+        >@sonneh_design</a>
       </p>
 
       <p>Perth, Western Australia</p>
-
     </div>
 
   </main>
@@ -287,13 +147,11 @@
         if (response.ok) {
           statusMessage.textContent =
             "Thank you. Your message has been sent successfully.";
-
           form.reset();
         } else {
           statusMessage.textContent =
             "Your message could not be sent. Please try again.";
         }
-
       } catch (error) {
         statusMessage.textContent =
           "Connection error. Please try again or email info@sonneh.com.";
