@@ -1,16 +1,18 @@
 
-/* ========================================
+/* =====================================
    SONNEH DESIGN STUDIO
-   Website Styles + Architectural Motion
-   ======================================== */
+   Complete Stylesheet — 2026
+   ===================================== */
 
 :root {
-  --bg: #004735;
-  --header-bg: #003B30;
-  --fg: #FFFFFF;
-  --muted: #D5E6DF;
-  --accent: #B9F5E6;
+  --bg: #003d2c;
+  --fg: #ffffff;
+  --muted: #d2e4dc;
+  --accent: #e0f1e8;
+  --line: rgba(255,255,255,0.10);
 }
+
+/* GLOBAL */
 
 * {
   box-sizing: border-box;
@@ -22,64 +24,110 @@ html {
 }
 
 body {
-  min-height: 100vh;
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Inter, system-ui, "Segoe UI",
     Roboto, Arial, sans-serif;
   color: var(--fg);
   background: var(--bg);
-  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+  isolation: isolate;
 }
 
-a {
-  color: var(--fg);
+/* SUBTLE ANIMATED BACKGROUND */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 35% 40%,
+      rgba(0, 110, 77, 0.30) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 75% 65%,
+      rgba(0, 75, 62, 0.22) 0%,
+      transparent 50%
+    );
+
+  animation: sonnehFlow 24s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-/* ========================================
-   HEADER
-   ======================================== */
+@keyframes sonnehFlow {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+
+  100% {
+    transform: translate3d(-1%, 4%, 0) scale(1.02);
+  }
+}
+
+/* HEADER */
 
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--header-bg);
-  border-bottom: 1px solid rgba(255,255,255,.10);
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
   max-width: 1200px;
-  margin: auto;
-  padding: 20px 32px;
+  margin: 0 auto;
+  padding: 20px 24px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
+
+/* HEADER LOGO */
 
 .brand {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  color: white;
-  text-decoration: none;
-  font-size: 24px;
+
+  font-size: 25px;
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: .02em;
+  letter-spacing: -0.035em;
+
+  color: var(--fg);
+  text-decoration: none;
 }
 
 .brand::after {
   content: "Design Studio";
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: .01em;
+  letter-spacing: 0;
   margin-top: 4px;
 }
+
+/* NAVIGATION */
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 34px;
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -90,165 +138,139 @@ a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  transition: color .25s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .menu a:hover,
 .menu a.active {
-  color: white;
+  color: var(--fg);
 }
 
-/* ========================================
-   HOME — ANIMATED HERO
-   ======================================== */
+/* HOME HERO */
 
 .hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
+  flex: 1;
+  min-height: 65vh;
 
-  min-height: 62vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   text-align: center;
-  padding: 60px 20px;
-  background: #003E31;
+  padding: 80px 24px;
 }
 
-/* Moving green light */
-
-.hero::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-
-  width: 90%;
-  height: 140%;
-  left: 5%;
-  top: -20%;
-
-  background: radial-gradient(
-    ellipse at center,
-    rgba(8,119,76,.42) 0%,
-    rgba(4,86,61,.20) 40%,
-    transparent 70%
-  );
-
-  pointer-events: none;
-  animation: sonnehGlow 15s ease-in-out infinite alternate;
-}
-
-/* Architectural geometry */
-
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-
-  width: 85%;
-  height: 90%;
-  left: 7.5%;
-  top: 5%;
-
-  border: 1px solid rgba(185,245,230,.13);
-
-  transform: rotate(-18deg);
-  pointer-events: none;
-
-  animation: sonnehLines 20s ease-in-out infinite alternate;
-}
-
-/* Main logo */
+/* MAIN LOGO */
 
 .title {
-  position: relative;
-  z-index: 1;
-
-  font-size: clamp(48px, 7vw, 82px);
+  font-size: clamp(64px, 9vw, 112px);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -.025em;
-
-  margin: 0 0 12px;
-
-  animation: sonnehReveal 1.8s ease-out both;
-}
-
-/* Design Studio subtitle */
-
-.hero h2 {
-  position: relative;
-  z-index: 1;
-
-  font-size: 30px;
-  font-weight: 600;
-  margin: 0 0 38px;
-
-  animation: sonnehReveal 1.8s .3s ease-out both;
-}
-
-/* Supporting text */
-
-.tagline {
-  position: relative;
-  z-index: 1;
-
-  font-size: 20px;
-  line-height: 1.6;
-  color: var(--muted);
+  line-height: 1;
+  letter-spacing: -0.055em;
   margin: 0;
 
-  animation: sonnehReveal 1.8s .6s ease-out both;
+  animation: fadeUp 1.2s ease both;
 }
 
-.hero p:not(.tagline) {
-  position: relative;
-  z-index: 1;
+/* DESIGN STUDIO UNDER LOGO */
+
+.hero .title::after {
+  content: "Design Studio";
+  display: block;
+
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  margin-top: 20px;
+}
+
+/* TAGLINE */
+
+.tagline {
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 400;
+  line-height: 1.6;
+
   color: var(--muted);
-  animation: sonnehReveal 1.8s .8s ease-out both;
+  margin: 48px 0 0;
+
+  animation: fadeUp 1.5s ease both;
 }
 
-/* ========================================
-   ANIMATION KEYFRAMES
-   ======================================== */
+/* HOME LOCATION */
 
-@keyframes sonnehGlow {
-  0% {
-    transform: translate(-12%, 8%) scale(.9);
-    opacity: .65;
-  }
+.hero .location {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 4px;
 
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(12%, -8%) scale(1.18);
-    opacity: .85;
-  }
+  animation: fadeUp 1.7s ease both;
 }
 
-@keyframes sonnehLines {
-  0% {
-    transform: translate(-25px, 15px)
-      rotate(-18deg);
-    opacity: .4;
-  }
+/* CONTENT PAGES */
 
-  100% {
-    transform: translate(25px, -15px)
-      rotate(-12deg);
-    opacity: .9;
-  }
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px 90px;
+
+  animation: fadeUp 0.9s ease both;
 }
 
-@keyframes sonnehReveal {
+.page h1 {
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+}
+
+.page p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.page a {
+  color: var(--fg);
+  text-decoration-color: rgba(255,255,255,0.5);
+  text-underline-offset: 4px;
+}
+
+.page a:hover {
+  text-decoration-color: var(--fg);
+}
+
+/* FOOTER */
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 28px 20px;
+
+  background: transparent;
+  border-top: 1px solid var(--line);
+
+  text-align: center;
+  color: var(--muted);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+/* ENTRANCE MOTION */
+
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(22px);
   }
 
   to {
@@ -257,75 +279,46 @@ a {
   }
 }
 
-/* ========================================
-   ABOUT / CONTACT
-   ======================================== */
+/* GENERAL LINKS */
 
-.page {
-  max-width: 840px;
-  margin: 64px auto;
-  padding: 0 22px;
+a {
+  color: var(--fg);
 }
 
-.page h1 {
-  font-size: 42px;
-  font-weight: 800;
-  margin: 0 0 24px;
-}
+/* TABLET */
 
-.page p {
-  font-size: 17px;
-  line-height: 1.8;
-  color: #E8F0EC;
-  margin: 0 0 20px;
-}
-
-.page a {
-  color: white;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.page a:hover {
-  color: var(--accent);
-}
-
-/* ========================================
-   FOOTER
-   ======================================== */
-
-.footer {
-  border-top: 1px solid rgba(255,255,255,.10);
-  text-align: center;
-  color: var(--muted);
-  padding: 24px 20px;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 15px;
-}
-
-/* ========================================
-   MOBILE
-   ======================================== */
-
-@media (max-width: 640px) {
-
+@media (max-width: 900px) {
   .nav {
-    padding: 18px 20px;
-  }
-
-  .brand {
-    font-size: 19px;
-  }
-
-  .brand::after {
-    font-size: 8px;
+    padding: 20px 24px;
   }
 
   .menu {
-    gap: 14px;
+    gap: 24px;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+  .brand::after {
+    font-size: 9px;
+  }
+
+  .menu {
+    gap: 16px;
   }
 
   .menu a {
@@ -334,50 +327,44 @@ a {
 
   .hero {
     min-height: 65vh;
-    padding: 50px 20px;
+    padding: 70px 20px;
   }
 
   .title {
-    font-size: 48px;
+    font-size: clamp(48px, 13vw, 72px);
   }
 
-  .hero h2 {
-    font-size: 23px;
-    margin-bottom: 28px;
+  .hero .title::after {
+    font-size: 22px;
+    margin-top: 16px;
   }
 
   .tagline {
+    margin-top: 40px;
     font-size: 16px;
   }
 
   .page {
-    margin: 48px auto;
-  }
-
-  .page h1 {
-    font-size: 34px;
+    padding: 65px 22px 80px;
   }
 
   .page p {
     font-size: 16px;
   }
+
+  .footer {
+    padding: 24px 16px;
+  }
 }
 
-/* ========================================
-   ACCESSIBILITY
-   ======================================== */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
-  html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
   }
 }
