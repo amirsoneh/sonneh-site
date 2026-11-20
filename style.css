@@ -1,15 +1,15 @@
 
-/* =========================================
+/* ==========================================
    SONNEH DESIGN STUDIO
-   Complete Website Stylesheet — 2026
-   ========================================= */
+   Complete Stylesheet — November 2026
+   ========================================== */
 
 :root {
   --bg: #003d2c;
   --fg: #ffffff;
   --muted: #d2e4dc;
-  --accent: #dcefe5;
-  --line: rgba(255,255,255,0.08);
+  --accent: #e0f1e8;
+  --line: rgba(255,255,255,0.055);
 }
 
 * {
@@ -24,22 +24,24 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   position: relative;
   isolation: isolate;
   overflow-x: hidden;
 
-  font-family: Inter, system-ui, "Segoe UI",
-    Roboto, Arial, sans-serif;
+  font-family: Inter, system-ui,
+    "Segoe UI", Roboto, Arial, sans-serif;
 
   color: var(--fg);
   background: var(--bg);
 }
 
-/* =========================================
-   ANIMATED ARCHITECTURAL LINE BACKGROUND
-   ========================================= */
+/* ==========================================
+   SUBTLE LINE MOTION GRAPHIC
+   No diagonal or intersecting patterns
+   ========================================== */
 
 body::before,
 body::after {
@@ -47,83 +49,111 @@ body::after {
   position: fixed;
   pointer-events: none;
   z-index: -1;
-  inset: -30%;
-  transform-origin: center;
+  left: -15%;
+  width: 130%;
+  height: 120%;
+  top: -10%;
 }
 
-/* Fine diagonal architectural lines */
+/* Primary architectural horizontal lines */
 
 body::before {
-  opacity: 0.32;
+  opacity: 0.5;
 
   background:
-    repeating-linear-gradient(
-      115deg,
-      transparent 0px,
-      transparent 109px,
-      rgba(181,235,211,0.14) 110px,
-      transparent 111px,
-      transparent 220px
-    );
+    linear-gradient(
+      90deg,
+      transparent 4%,
+      rgba(174,231,204,0.10) 30%,
+      rgba(174,231,204,0.03) 75%,
+      transparent 96%
+    ) 0 19% / 100% 1px no-repeat,
 
-  animation: architecturalDrift 35s
-    linear infinite alternate;
-}
+    linear-gradient(
+      90deg,
+      transparent 12%,
+      rgba(174,231,204,0.11) 48%,
+      transparent 88%
+    ) 0 43% / 100% 1px no-repeat,
 
-/* Secondary fine vertical line layer */
+    linear-gradient(
+      90deg,
+      transparent 2%,
+      rgba(174,231,204,0.09) 62%,
+      transparent 98%
+    ) 0 72% / 100% 1px no-repeat;
 
-body::after {
-  opacity: 0.20;
-
-  background:
-    repeating-linear-gradient(
-      65deg,
-      transparent 0px,
-      transparent 179px,
-      rgba(207,244,225,0.12) 180px,
-      transparent 181px,
-      transparent 360px
-    );
-
-  animation: secondaryDrift 45s
+  animation: lineDrift 24s
     ease-in-out infinite alternate;
 }
 
-@keyframes architecturalDrift {
+/* Secondary fine lines */
+
+body::after {
+  opacity: 0.35;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 18%,
+      rgba(200,240,220,0.11) 50%,
+      transparent 82%
+    ) 0 31% / 100% 1px no-repeat,
+
+    linear-gradient(
+      90deg,
+      transparent 8%,
+      rgba(200,240,220,0.10) 38%,
+      transparent 91%
+    ) 0 61% / 100% 1px no-repeat,
+
+    linear-gradient(
+      90deg,
+      transparent 25%,
+      rgba(200,240,220,0.08) 70%,
+      transparent 96%
+    ) 0 86% / 100% 1px no-repeat;
+
+  animation: lineDriftReverse 32s
+    ease-in-out infinite alternate;
+}
+
+@keyframes lineDrift {
   from {
-    transform: translate3d(-5%, -3%, 0)
-      rotate(-2deg);
+    transform: translate3d(-5%, -2%, 0);
   }
 
   to {
-    transform: translate3d(5%, 3%, 0)
-      rotate(2deg);
+    transform: translate3d(5%, 2%, 0);
   }
 }
 
-@keyframes secondaryDrift {
+@keyframes lineDriftReverse {
   from {
-    transform: translate3d(4%, -4%, 0);
+    transform: translate3d(4%, 2%, 0);
   }
 
   to {
-    transform: translate3d(-4%, 4%, 0);
+    transform: translate3d(-4%, -2%, 0);
   }
 }
 
-/* =========================================
+/* ==========================================
    HEADER
-   ========================================= */
+   ========================================== */
 
 .topbar {
   position: relative;
   z-index: 10;
   width: 100%;
+  flex-shrink: 0;
+
   background: transparent;
-  border-bottom: 1px solid var(--line);
+  border: none;
 }
 
 .nav {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 24px;
@@ -134,20 +164,20 @@ body::after {
   gap: 24px;
 }
 
-/* Logo */
+/* HEADER LOGO */
 
 .brand {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
 
+  color: var(--fg);
+  text-decoration: none;
+
   font-size: 25px;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;
-
-  color: var(--fg);
-  text-decoration: none;
 }
 
 .brand::after {
@@ -158,7 +188,7 @@ body::after {
   margin-top: 4px;
 }
 
-/* Navigation */
+/* NAVIGATION */
 
 .menu {
   display: flex;
@@ -184,13 +214,14 @@ body::after {
   color: var(--fg);
 }
 
-/* =========================================
-   HOME
-   ========================================= */
+/* ==========================================
+   HOME HERO
+   ========================================== */
 
 .hero {
   flex: 1;
-  min-height: 65vh;
+  min-height: 0;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -198,7 +229,7 @@ body::after {
   justify-content: center;
 
   text-align: center;
-  padding: 80px 24px;
+  padding: 65px 24px;
 }
 
 .title {
@@ -208,17 +239,25 @@ body::after {
   letter-spacing: -0.055em;
   margin: 0;
 
-  animation: fadeUp 1.2s ease both;
+  animation: fadeUp 1.1s ease both;
 }
 
-.hero .title::after {
-  content: "Design Studio";
-  display: block;
+/* Prevent duplicated Design Studio */
 
+.hero .title::after {
+  content: none !important;
+}
+
+/* Existing Design Studio text in HTML */
+
+.hero h2,
+.hero .subtitle,
+.hero .studio {
   font-size: clamp(22px, 3vw, 34px);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-top: 20px;
+  line-height: 1.3;
+  margin: 18px 0 0;
+  color: var(--fg);
 }
 
 .tagline {
@@ -227,9 +266,9 @@ body::after {
   line-height: 1.6;
 
   color: var(--muted);
-  margin: 48px 0 0;
+  margin: 42px 0 0;
 
-  animation: fadeUp 1.5s ease both;
+  animation: fadeUp 1.4s ease both;
 }
 
 .hero .location {
@@ -237,35 +276,39 @@ body::after {
   color: var(--muted);
   margin-top: 4px;
 
-  animation: fadeUp 1.7s ease both;
+  animation: fadeUp 1.6s ease both;
 }
 
-/* =========================================
-   ABOUT & CONTACT
-   ========================================= */
+/* ==========================================
+   ABOUT AND CONTACT PAGES
+   ========================================== */
 
 .page {
   flex: 1;
+  min-height: 0;
   width: 100%;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 80px 24px 90px;
 
-  animation: fadeUp 0.9s ease both;
+  margin: 0 auto;
+  padding: clamp(28px, 6vh, 70px) 24px 35px;
+
+  animation: fadeUp 0.8s ease both;
 }
 
 .page h1 {
   font-size: clamp(36px, 5vw, 48px);
   font-weight: 800;
   letter-spacing: -0.035em;
-  margin: 0 0 28px;
+  line-height: 1.15;
+
+  margin: 0 0 26px;
 }
 
 .page p {
   font-size: 17px;
-  line-height: 1.8;
+  line-height: 1.65;
   color: var(--muted);
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 
 .page a {
@@ -278,17 +321,18 @@ body::after {
   text-decoration-color: var(--fg);
 }
 
-/* =========================================
+/* ==========================================
    FOOTER
-   ========================================= */
+   ========================================== */
 
 .footer {
+  flex-shrink: 0;
   width: 100%;
   margin-top: auto;
-  padding: 28px 20px;
 
+  padding: 20px 16px;
   background: transparent;
-  border-top: 1px solid var(--line);
+  border: none;
 
   text-align: center;
   color: var(--muted);
@@ -300,14 +344,14 @@ body::after {
   letter-spacing: 0.01em;
 }
 
-/* =========================================
+/* ==========================================
    ENTRANCE ANIMATION
-   ========================================= */
+   ========================================== */
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(18px);
   }
 
   to {
@@ -316,19 +360,19 @@ body::after {
   }
 }
 
-/* General Links */
+/* GENERAL LINKS */
 
 a {
   color: var(--fg);
 }
 
-/* =========================================
+/* ==========================================
    TABLET
-   ========================================= */
+   ========================================== */
 
 @media (max-width: 900px) {
   .nav {
-    padding: 20px 24px;
+    padding: 18px 24px;
   }
 
   .menu {
@@ -336,18 +380,18 @@ a {
   }
 
   .hero {
-    min-height: 60vh;
+    padding: 55px 24px;
   }
 }
 
-/* =========================================
+/* ==========================================
    MOBILE
-   ========================================= */
+   ========================================== */
 
 @media (max-width: 640px) {
   .nav {
-    padding: 18px 20px;
-    gap: 16px;
+    padding: 17px 18px;
+    gap: 12px;
   }
 
   .brand {
@@ -359,7 +403,7 @@ a {
   }
 
   .menu {
-    gap: 16px;
+    gap: 14px;
   }
 
   .menu a {
@@ -367,40 +411,70 @@ a {
   }
 
   .hero {
-    min-height: 65vh;
-    padding: 70px 20px;
+    padding: 55px 18px;
   }
 
   .title {
     font-size: clamp(48px, 13vw, 72px);
   }
 
-  .hero .title::after {
+  .hero h2,
+  .hero .subtitle,
+  .hero .studio {
     font-size: 22px;
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
   .tagline {
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 16px;
   }
 
   .page {
-    padding: 65px 22px 80px;
+    padding: 38px 22px 30px;
+  }
+
+  .page h1 {
+    margin-bottom: 22px;
   }
 
   .page p {
     font-size: 16px;
+    margin-bottom: 16px;
   }
 
   .footer {
-    padding: 24px 16px;
+    padding: 18px 16px;
   }
 }
 
-/* =========================================
+/* ==========================================
+   SHORT DESKTOP SCREENS
+   ========================================== */
+
+@media (min-width: 641px) and (max-height: 750px) {
+  .page {
+    padding-top: 28px;
+    padding-bottom: 18px;
+  }
+
+  .page h1 {
+    margin-bottom: 18px;
+  }
+
+  .page p {
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .footer {
+    padding: 14px;
+  }
+}
+
+/* ==========================================
    ACCESSIBILITY
-   ========================================= */
+   ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
