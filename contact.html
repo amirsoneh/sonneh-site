@@ -1,121 +1,263 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
   <meta name="theme-color" content="#00512f">
-  <title>Contact — SONNEH Design Studio</title>
-  <meta name="description" content="Contact SONNEH Design Studio in Perth for design projects and collaborations.">
+
+  <meta name="description"
+        content="Get in touch with SONNEH Design Studio in Perth for design projects, creative collaborations and general enquiries.">
+
+  <title>Contact — SONNEH</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico">
+
+  <link rel="icon" href="/favicon.ico">
+
   <style>
+
+    /* CONTACT PAGE */
+
     .contact-layout {
-      max-width: 620px;
-      margin: auto;
-      padding: 35px 24px;
       width: 100%;
+      max-width: 620px;
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      margin: 0 auto;
+      padding: 35px 24px;
     }
+
     .contact-layout h1 {
-      font-size: clamp(36px, 5vw, 54px);
-      margin: 0 0 12px;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+
+      margin: 0 0 14px;
     }
+
     .contact-intro {
-      line-height: 1.6;
-      opacity: .85;
-      margin-bottom: 26px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+
+      margin: 0 0 28px;
     }
+
+    /* FORM */
+
     .contact-form {
       display: grid;
-      gap: 14px;
+      gap: 15px;
     }
-    .contact-form label {
+
+    .form-field label {
       display: block;
       font-size: 13px;
-      margin-bottom: 6px;
       font-weight: 600;
+
+      margin-bottom: 7px;
     }
+
     .contact-form input,
     .contact-form textarea {
       display: block;
       width: 100%;
+
       padding: 13px 15px;
-      border: 1px solid rgba(255,255,255,.3);
+
+      border: 1px solid rgba(255,255,255,0.30);
       border-radius: 5px;
-      background: rgba(255,255,255,.07);
-      color: white;
-      font: inherit;
+
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+
+      font-family: inherit;
+      font-size: 15px;
     }
+
     .contact-form input::placeholder,
     .contact-form textarea::placeholder {
-      color: rgba(255,255,255,.55);
+      color: rgba(255,255,255,0.55);
     }
+
     .contact-form textarea {
       min-height: 105px;
       resize: vertical;
     }
+
     .contact-form input:focus,
     .contact-form textarea:focus {
-      outline: 2px solid white;
+      outline: 2px solid #ffffff;
       outline-offset: 2px;
     }
+
+    /* BUTTON */
+
     .contact-form button {
+      width: 100%;
+
       padding: 14px 22px;
-      background: white;
+
+      background: #ffffff;
       color: #00512f;
+
       border: none;
       border-radius: 5px;
-      font: inherit;
+
+      font-family: inherit;
+      font-size: 15px;
       font-weight: 700;
+
       cursor: pointer;
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
     }
+
     .contact-form button:hover {
-      opacity: .88;
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
+
     .contact-form button:disabled {
-      opacity: .6;
+      opacity: 0.6;
       cursor: wait;
     }
+
+    /* FORM STATUS */
+
     .form-status {
-      font-size: 14px;
       min-height: 20px;
+      margin: 0;
+
+      font-size: 14px;
+      line-height: 1.5;
+
+      color: var(--muted);
     }
-    .contact-direct {
-      margin-top: 25px;
+
+    /* CONTACT DETAILS */
+
+    .contact-details {
+      margin-top: 24px;
+
       font-size: 14px;
       line-height: 1.8;
-      opacity: .9;
+
+      color: var(--muted);
     }
-    .contact-direct a {
-      color: white;
+
+    .contact-details p {
+      margin: 0 0 10px;
+    }
+
+    .contact-details a {
+      color: #ffffff;
+      text-decoration: underline;
       text-underline-offset: 4px;
     }
-    @media (max-width: 640px) {
-      .contact-layout {
-        padding: 24px 20px;
-      }
+
+    .contact-details a:hover {
+      opacity: 0.8;
     }
+
+    /* MOBILE */
+
+    @media (max-width: 640px) {
+
+      .contact-layout {
+        padding: 28px 20px;
+      }
+
+      .contact-layout h1 {
+        font-size: 38px;
+      }
+
+      .contact-intro {
+        font-size: 15px;
+        margin-bottom: 22px;
+      }
+
+      .contact-form {
+        gap: 12px;
+      }
+
+      .contact-form textarea {
+        min-height: 90px;
+      }
+
+      .contact-details {
+        margin-top: 20px;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
+
+  <!-- HEADER -->
+
   <header class="topbar">
     <nav class="nav">
-      <a class="brand" href="index.html">SONNEH</a>
+
+      <a class="brand" href="index.html">
+        SONNEH
+      </a>
+
       <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+        <li>
+          <a href="contact.html" class="active">
+            Contact
+          </a>
+        </li>
       </ul>
+
     </nav>
   </header>
 
+  <!-- CONTACT -->
+
   <main class="contact-layout">
+
     <h1>Let's connect.</h1>
+
     <p class="contact-intro">
       For project enquiries, creative collaborations
       or general conversations, we'd love to hear
       from you.
     </p>
+
+    <!-- CONTACT FORM -->
 
     <form
       id="contact-form"
@@ -123,75 +265,109 @@
       action="https://formspree.io/f/YOUR_FORM_ID"
       method="POST"
     >
-      <div>
+
+      <div class="form-field">
         <label for="name">Your name</label>
-        <input id="name" name="name" type="text"
-          placeholder="Full name" required>
+
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Full name"
+          autocomplete="name"
+          required>
       </div>
 
-      <div>
+      <div class="form-field">
         <label for="email">Email address</label>
-        <input id="email" name="email" type="email"
-          placeholder="you@example.com" required>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required>
       </div>
 
-      <div>
+      <div class="form-field">
         <label for="message">Your message</label>
-        <textarea id="message" name="message"
-          placeholder="Tell us about your enquiry..."
+
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Tell us a little about your enquiry..."
           required></textarea>
       </div>
 
-      <input type="hidden" name="_subject"
+      <input
+        type="hidden"
+        name="_subject"
         value="New SONNEH website enquiry">
 
-      <button id="send-button" type="submit">
+      <button
+        id="send-button"
+        type="submit">
         Send enquiry
       </button>
 
-      <p id="form-status" class="form-status"
-        role="status" aria-live="polite"></p>
+      <p
+        id="form-status"
+        class="form-status"
+        role="status"
+        aria-live="polite">
+      </p>
+
     </form>
 
-    <div class="contact-direct">
+    <!-- CONTACT INFORMATION -->
+
+    <div class="contact-details">
+
       <p>
-        Prefer email?<br>
+        Prefer email?
         <a href="mailto:info@sonneh.com">
           info@sonneh.com
         </a>
       </p>
-      <p>
-        Direct contact:
-        <a href="mailto:amir@sonneh.com">
-          amir@sonneh.com
-        </a>
-      </p>
+
       <p>
         Instagram:
-        <a href="https://www.instagram.com/sonneh_design/"
-          target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.instagram.com/sonneh_design/"
+          target="_blank"
+          rel="noopener noreferrer">
           @sonneh_design
         </a>
       </p>
+
       <p>Perth, Western Australia</p>
+
     </div>
+
   </main>
+
+  <!-- FOOTER -->
 
   <footer class="footer">
     <p>© SONNEH 2026</p>
   </footer>
 
+  <!-- FORM HANDLING -->
+
   <script>
+
     const form = document.getElementById("contact-form");
     const status = document.getElementById("form-status");
     const button = document.getElementById("send-button");
 
     form.addEventListener("submit", async (event) => {
+
       event.preventDefault();
 
       if (form.action.includes("YOUR_FORM_ID")) {
         status.textContent =
-          "The contact form is not connected yet. Please email us directly.";
+          "The contact form is not connected yet. Please email info@sonneh.com.";
         return;
       }
 
@@ -199,27 +375,43 @@
       status.textContent = "Sending your message...";
 
       try {
+
         const response = await fetch(form.action, {
           method: "POST",
           body: new FormData(form),
-          headers: { "Accept": "application/json" }
+          headers: {
+            "Accept": "application/json"
+          }
         });
 
         if (response.ok) {
+
           status.textContent =
-            "Thank you. Your message has been sent.";
+            "Thank you. Your message has been sent successfully.";
+
           form.reset();
+
         } else {
+
           status.textContent =
-            "Unable to send. Please email info@sonneh.com.";
+            "Unable to send your message. Please email info@sonneh.com.";
+
         }
+
       } catch (error) {
+
         status.textContent =
-          "Connection error. Please try again or email us.";
+          "Connection error. Please try again or email info@sonneh.com.";
+
       } finally {
+
         button.disabled = false;
+
       }
+
     });
+
   </script>
+
 </body>
 </html>
