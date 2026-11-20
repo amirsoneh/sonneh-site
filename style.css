@@ -1,64 +1,100 @@
 
+/* =========================================
+   SONNEH DESIGN STUDIO
+   Main Stylesheet — 2026
+========================================= */
+
 :root {
-  --bg: #014125;
-  --fg: #ffffff;
-  --muted: #d0e5da;
-  --accent: #b9f5e6;
+  --bg: #004B35;
+  --header-bg: #003B30;
+  --fg: #FFFFFF;
+  --muted: #D5E6DF;
+  --accent: #B9F5E6;
 }
+
+/* GENERAL */
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: Inter, system-ui, "Segoe UI",
+    Roboto, Arial, sans-serif;
   color: var(--fg);
-  background-color: var(--bg);
-  background-image: radial-gradient(
-    ellipse at 50% 42%,
-    #006b3d 0%,
-    #005331 38%,
-    #014125 72%,
-    #002d1e 100%
-  );
-  background-attachment: fixed;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Top Navigation */
+a {
+  color: var(--fg);
+}
+
+/* =========================================
+   HEADER / NAVIGATION
+========================================= */
 
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(0, 49, 31, 0.88);
-  backdrop-filter: saturate(180%) blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  z-index: 100;
+  background: var(--header-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
 .nav {
-  max-width: 1100px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
 }
 
+/* SONNEH LOGO */
+
 .brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: .04em;
-  color: var(--fg);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
   text-decoration: none;
 }
 
+.brand::after {
+  content: "Design Studio";
+  display: block;
+
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* NAVIGATION LINKS */
+
 .menu {
   display: flex;
-  gap: 18px;
+  align-items: center;
+  gap: 32px;
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -67,37 +103,62 @@ body {
 .menu a {
   color: var(--muted);
   text-decoration: none;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.03em;
+
+  transition: color 0.2s ease;
 }
 
 .menu a:hover,
 .menu a.active {
-  color: var(--fg);
+  color: #FFFFFF;
 }
 
-/* Home Hero */
+/* =========================================
+   HOME PAGE / HERO
+========================================= */
 
 .hero {
   min-height: 62vh;
+
   display: grid;
   place-content: center;
+
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 .title {
-  font-size: 72px;
-  line-height: 1.05;
-  margin: 0 0 12px;
+  font-size: clamp(48px, 7vw, 82px);
   font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+
+  margin: 0 0 12px;
+}
+
+.hero h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0 0 38px;
 }
 
 .tagline {
   font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.hero p {
   color: var(--muted);
 }
 
-/* About and Contact Pages */
+/* =========================================
+   ABOUT / CONTACT PAGES
+========================================= */
 
 .page {
   max-width: 840px;
@@ -106,38 +167,108 @@ body {
 }
 
 .page h1 {
-  font-size: 40px;
-  margin: 0 0 16px;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+
+  margin: 0 0 24px;
 }
 
 .page p {
-  line-height: 1.7;
-  color: #e8f0ec;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #E8F0EC;
+
+  margin: 0 0 20px;
 }
 
-/* Links */
-
-a {
-  color: var(--fg);
+.page a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* Footer */
+.page a:hover {
+  color: var(--accent);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
 
 .footer {
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(255,255,255,0.10);
+
   text-align: center;
   color: var(--muted);
-  padding: 22px;
+
+  padding: 24px 20px;
 }
 
-/* Mobile */
+.footer p {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
 
 @media (max-width: 640px) {
+
+  .nav {
+    padding: 18px 20px;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .brand::after {
+    font-size: 8px;
+    margin-top: 3px;
+  }
+
+  .menu {
+    gap: 14px;
+  }
+
+  .menu a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 65vh;
+    padding: 50px 20px;
+  }
+
   .title {
     font-size: 48px;
   }
 
+  .hero h2 {
+    font-size: 23px;
+    margin-bottom: 28px;
+  }
+
   .tagline {
-    font-size: 17px;
+    font-size: 16px;
+  }
+
+  .page {
+    margin: 48px auto;
+    padding: 0 22px;
+  }
+
+  .page h1 {
+    font-size: 34px;
+  }
+
+  .page p {
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 22px 16px;
   }
 }
