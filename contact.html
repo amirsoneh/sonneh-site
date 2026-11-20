@@ -1,14 +1,101 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — SONNEH</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00512f">
+  <title>Contact — SONNEH Design Studio</title>
+  <meta name="description" content="Contact SONNEH Design Studio in Perth for design projects and collaborations.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    .contact-layout {
+      max-width: 620px;
+      margin: auto;
+      padding: 35px 24px;
+      width: 100%;
+    }
+    .contact-layout h1 {
+      font-size: clamp(36px, 5vw, 54px);
+      margin: 0 0 12px;
+    }
+    .contact-intro {
+      line-height: 1.6;
+      opacity: .85;
+      margin-bottom: 26px;
+    }
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+    .contact-form label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 5px;
+      background: rgba(255,255,255,.07);
+      color: white;
+      font: inherit;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,.55);
+    }
+    .contact-form textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
+    .contact-form button {
+      padding: 14px 22px;
+      background: white;
+      color: #00512f;
+      border: none;
+      border-radius: 5px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      opacity: .88;
+    }
+    .contact-form button:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+    .form-status {
+      font-size: 14px;
+      min-height: 20px;
+    }
+    .contact-direct {
+      margin-top: 25px;
+      font-size: 14px;
+      line-height: 1.8;
+      opacity: .9;
+    }
+    .contact-direct a {
+      color: white;
+      text-underline-offset: 4px;
+    }
+    @media (max-width: 640px) {
+      .contact-layout {
+        padding: 24px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -22,24 +109,117 @@
     </nav>
   </header>
 
-  <main class="page">
-    <h1>Contact</h1>
+  <main class="contact-layout">
+    <h1>Let's connect.</h1>
+    <p class="contact-intro">
+      For project enquiries, creative collaborations
+      or general conversations, we'd love to hear
+      from you.
+    </p>
 
-    <p><strong>SONNEH | Design Studio</strong><br>
-    Perth, Western Australia</p>
+    <form
+      id="contact-form"
+      class="contact-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <div>
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text"
+          placeholder="Full name" required>
+      </div>
 
-    <p>General Enquiries:<br>
-    <a href="mailto:info@sonneh.com">info@sonneh.com</a></p>
+      <div>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email"
+          placeholder="you@example.com" required>
+      </div>
 
-    <p>Direct Contact:<br>
-    <a href="mailto:amir@sonneh.com">amir@sonneh.com</a></p>
+      <div>
+        <label for="message">Your message</label>
+        <textarea id="message" name="message"
+          placeholder="Tell us about your enquiry..."
+          required></textarea>
+      </div>
 
-    <p>Instagram:<br>
-<a href="https://instagram.com/sonneh_design" target="_blank" rel="noopener">@sonneh_design</a></p>
+      <input type="hidden" name="_subject"
+        value="New SONNEH website enquiry">
+
+      <button id="send-button" type="submit">
+        Send enquiry
+      </button>
+
+      <p id="form-status" class="form-status"
+        role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="contact-direct">
+      <p>
+        Prefer email?<br>
+        <a href="mailto:info@sonneh.com">
+          info@sonneh.com
+        </a>
+      </p>
+      <p>
+        Direct contact:
+        <a href="mailto:amir@sonneh.com">
+          amir@sonneh.com
+        </a>
+      </p>
+      <p>
+        Instagram:
+        <a href="https://www.instagram.com/sonneh_design/"
+          target="_blank" rel="noopener noreferrer">
+          @sonneh_design
+        </a>
+      </p>
+      <p>Perth, Western Australia</p>
+    </div>
   </main>
 
   <footer class="footer">
     <p>© SONNEH 2026</p>
   </footer>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    const button = document.getElementById("send-button");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (form.action.includes("YOUR_FORM_ID")) {
+        status.textContent =
+          "The contact form is not connected yet. Please email us directly.";
+        return;
+      }
+
+      button.disabled = true;
+      status.textContent = "Sending your message...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok) {
+          status.textContent =
+            "Thank you. Your message has been sent.";
+          form.reset();
+        } else {
+          status.textContent =
+            "Unable to send. Please email info@sonneh.com.";
+        }
+      } catch (error) {
+        status.textContent =
+          "Connection error. Please try again or email us.";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
