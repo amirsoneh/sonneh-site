@@ -1,18 +1,16 @@
 
-/* =====================================
+/* =========================================
    SONNEH DESIGN STUDIO
-   Complete Stylesheet — 2026
-   ===================================== */
+   Complete Website Stylesheet — 2026
+   ========================================= */
 
 :root {
   --bg: #003d2c;
   --fg: #ffffff;
   --muted: #d2e4dc;
-  --accent: #e0f1e8;
-  --line: rgba(255,255,255,0.10);
+  --accent: #dcefe5;
+  --line: rgba(255,255,255,0.08);
 }
-
-/* GLOBAL */
 
 * {
   box-sizing: border-box;
@@ -28,55 +26,94 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: Inter, system-ui, "Segoe UI",
-    Roboto, Arial, sans-serif;
-  color: var(--fg);
-  background: var(--bg);
-  overflow-x: hidden;
   position: relative;
   isolation: isolate;
+  overflow-x: hidden;
+
+  font-family: Inter, system-ui, "Segoe UI",
+    Roboto, Arial, sans-serif;
+
+  color: var(--fg);
+  background: var(--bg);
 }
 
-/* SUBTLE ANIMATED BACKGROUND */
+/* =========================================
+   ANIMATED ARCHITECTURAL LINE BACKGROUND
+   ========================================= */
 
-body::before {
+body::before,
+body::after {
   content: "";
   position: fixed;
-  inset: -25%;
-  z-index: -1;
   pointer-events: none;
+  z-index: -1;
+  inset: -30%;
+  transform-origin: center;
+}
+
+/* Fine diagonal architectural lines */
+
+body::before {
+  opacity: 0.32;
 
   background:
-    radial-gradient(
-      ellipse at 35% 40%,
-      rgba(0, 110, 77, 0.30) 0%,
-      transparent 48%
-    ),
-    radial-gradient(
-      ellipse at 75% 65%,
-      rgba(0, 75, 62, 0.22) 0%,
-      transparent 50%
+    repeating-linear-gradient(
+      115deg,
+      transparent 0px,
+      transparent 109px,
+      rgba(181,235,211,0.14) 110px,
+      transparent 111px,
+      transparent 220px
     );
 
-  animation: sonnehFlow 24s ease-in-out infinite alternate;
-  will-change: transform;
+  animation: architecturalDrift 35s
+    linear infinite alternate;
 }
 
-@keyframes sonnehFlow {
-  0% {
-    transform: translate3d(-3%, -2%, 0) scale(1);
+/* Secondary fine vertical line layer */
+
+body::after {
+  opacity: 0.20;
+
+  background:
+    repeating-linear-gradient(
+      65deg,
+      transparent 0px,
+      transparent 179px,
+      rgba(207,244,225,0.12) 180px,
+      transparent 181px,
+      transparent 360px
+    );
+
+  animation: secondaryDrift 45s
+    ease-in-out infinite alternate;
+}
+
+@keyframes architecturalDrift {
+  from {
+    transform: translate3d(-5%, -3%, 0)
+      rotate(-2deg);
   }
 
-  50% {
-    transform: translate3d(3%, 2%, 0) scale(1.06);
-  }
-
-  100% {
-    transform: translate3d(-1%, 4%, 0) scale(1.02);
+  to {
+    transform: translate3d(5%, 3%, 0)
+      rotate(2deg);
   }
 }
 
-/* HEADER */
+@keyframes secondaryDrift {
+  from {
+    transform: translate3d(4%, -4%, 0);
+  }
+
+  to {
+    transform: translate3d(-4%, 4%, 0);
+  }
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
 
 .topbar {
   position: relative;
@@ -97,7 +134,7 @@ body::before {
   gap: 24px;
 }
 
-/* HEADER LOGO */
+/* Logo */
 
 .brand {
   display: inline-flex;
@@ -121,7 +158,7 @@ body::before {
   margin-top: 4px;
 }
 
-/* NAVIGATION */
+/* Navigation */
 
 .menu {
   display: flex;
@@ -138,7 +175,8 @@ body::before {
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  transition: color 0.3s ease, opacity 0.3s ease;
+
+  transition: color 0.3s ease;
 }
 
 .menu a:hover,
@@ -146,7 +184,9 @@ body::before {
   color: var(--fg);
 }
 
-/* HOME HERO */
+/* =========================================
+   HOME
+   ========================================= */
 
 .hero {
   flex: 1;
@@ -161,8 +201,6 @@ body::before {
   padding: 80px 24px;
 }
 
-/* MAIN LOGO */
-
 .title {
   font-size: clamp(64px, 9vw, 112px);
   font-weight: 800;
@@ -173,8 +211,6 @@ body::before {
   animation: fadeUp 1.2s ease both;
 }
 
-/* DESIGN STUDIO UNDER LOGO */
-
 .hero .title::after {
   content: "Design Studio";
   display: block;
@@ -182,11 +218,8 @@ body::before {
   font-size: clamp(22px, 3vw, 34px);
   font-weight: 700;
   letter-spacing: -0.02em;
-
   margin-top: 20px;
 }
-
-/* TAGLINE */
 
 .tagline {
   font-size: clamp(16px, 2vw, 21px);
@@ -199,8 +232,6 @@ body::before {
   animation: fadeUp 1.5s ease both;
 }
 
-/* HOME LOCATION */
-
 .hero .location {
   font-size: 15px;
   color: var(--muted);
@@ -209,7 +240,9 @@ body::before {
   animation: fadeUp 1.7s ease both;
 }
 
-/* CONTENT PAGES */
+/* =========================================
+   ABOUT & CONTACT
+   ========================================= */
 
 .page {
   flex: 1;
@@ -245,7 +278,9 @@ body::before {
   text-decoration-color: var(--fg);
 }
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+   ========================================= */
 
 .footer {
   width: 100%;
@@ -265,7 +300,9 @@ body::before {
   letter-spacing: 0.01em;
 }
 
-/* ENTRANCE MOTION */
+/* =========================================
+   ENTRANCE ANIMATION
+   ========================================= */
 
 @keyframes fadeUp {
   from {
@@ -279,13 +316,15 @@ body::before {
   }
 }
 
-/* GENERAL LINKS */
+/* General Links */
 
 a {
   color: var(--fg);
 }
 
-/* TABLET */
+/* =========================================
+   TABLET
+   ========================================= */
 
 @media (max-width: 900px) {
   .nav {
@@ -301,7 +340,9 @@ a {
   }
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 640px) {
   .nav {
@@ -357,7 +398,9 @@ a {
   }
 }
 
-/* ACCESSIBILITY */
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,
