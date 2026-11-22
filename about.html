@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00512F">
-  <meta name="description" content="About SONNEH, an independent interior design and design strategy studio based in Perth, Western Australia.">
-  <title>About | SONNEH Design Studio</title>
+  <meta name="description" content="SONNEH is an independent interior design and design strategy studio based in Perth, Western Australia.">
+  <title>Studio | SONNEH</title>
 
   <style>
     :root {
       --green: #00512F;
       --white: #FFFFFF;
-      --soft: #E2E9E2;
     }
 
     * {
@@ -38,44 +37,62 @@
 
     .site {
       min-height: 100svh;
+      position: relative;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
+      isolation: isolate;
     }
 
-    .header,
-    .main,
-    .footer {
-      width: min(94%, 1540px);
-      margin-left: auto;
-      margin-right: auto;
+    .site::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 41%;
+      background-image: url("studio-photo.webp");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    .site::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 41%;
+      background: var(--green);
+      z-index: -1;
     }
 
     .header {
+      width: calc(100% - 100px);
+      margin: 0 auto;
+      padding: 27px 0 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 24px;
-      padding: 26px 0 19px;
-      border-bottom: 1px solid rgba(255,255,255,.38);
+      border-bottom: 1px solid rgba(255,255,255,.65);
     }
 
     .logo {
-      font-size: clamp(25px, 2.1vw, 34px);
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: -1.3px;
+      letter-spacing: -1.4px;
+      line-height: 1;
     }
 
     .navigation {
       display: flex;
       align-items: center;
-      gap: clamp(22px, 3vw, 46px);
+      gap: 36px;
     }
 
     .navigation a {
-      font-size: 14px;
-      font-weight: 600;
-      opacity: .82;
-      padding-bottom: 5px;
+      font-size: 15px;
+      font-weight: 500;
+      opacity: .85;
+      padding-bottom: 6px;
     }
 
     .navigation a:hover,
@@ -85,175 +102,217 @@
 
     .navigation .active {
       opacity: 1;
-      border-bottom: 1px solid var(--white);
+      border-bottom: 2px solid var(--white);
     }
 
     .main {
       flex: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 32%);
-      gap: clamp(45px, 6vw, 110px);
+      display: flex;
       align-items: center;
-      padding-top: 55px;
-      padding-bottom: 55px;
+      width: 41%;
+      padding: 55px 42px 65px 5%;
     }
 
     .content {
-      max-width: 720px;
+      width: 100%;
+      max-width: 570px;
     }
 
     .eyebrow {
-      margin: 0 0 18px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .20em;
+      margin: 0 0 25px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .26em;
     }
 
     h1 {
-      margin: 0 0 23px;
-      font-size: clamp(32px, 3vw, 46px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -.03em;
-    }
-
-    .intro {
-      margin: 0 0 20px;
-      font-size: clamp(16px, 1.15vw, 18px);
-      line-height: 1.6;
-    }
-
-    .body-text {
-      font-size: 14px;
-      line-height: 1.75;
-      color: var(--soft);
-    }
-
-    .body-text p {
-      margin: 0 0 14px;
-    }
-
-    .signature {
-      margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.3);
-    }
-
-    .signature strong {
-      display: block;
-      font-size: 14px;
-      letter-spacing: .10em;
-      margin-bottom: 7px;
-    }
-
-    .signature span {
-      display: block;
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--soft);
-    }
-
-    .portrait {
       margin: 0;
-      width: 100%;
-      justify-self: end;
+      font-size: clamp(58px, 6vw, 100px);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.045em;
     }
 
-    .portrait img {
-      display: block;
-      width: 100%;
-      height: min(480px, 60vh);
-      object-fit: cover;
-      object-position: center 35%;
-      filter: grayscale(100%);
+    .line {
+      width: 58px;
+      height: 2px;
+      background: var(--white);
+      margin: 42px 0 35px;
     }
 
-    .portrait figcaption {
-      margin-top: 12px;
-      font-size: 10px;
-      letter-spacing: .16em;
-      color: var(--soft);
+    h2 {
+      margin: 0 0 19px;
+      font-size: clamp(23px, 2vw, 32px);
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -.025em;
+    }
+
+    .description {
+      margin: 0;
+      max-width: 510px;
+      font-size: clamp(15px, 1.3vw, 19px);
+      line-height: 1.62;
+      color: rgba(255,255,255,.94);
+    }
+
+    .founder {
+      margin-top: 62px;
+    }
+
+    .founder-name {
+      margin: 0 0 9px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .23em;
+    }
+
+    .founder-role {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.55;
     }
 
     .footer {
-      display: flex;
-      justify-content: flex-end;
-      padding: 20px 0 24px;
-      font-size: 12px;
-      border-top: 1px solid rgba(255,255,255,.25);
+      width: calc(100% - 100px);
+      margin: 0 auto;
+      padding: 16px 0 20px;
+      text-align: right;
+      font-size: 11px;
+      text-shadow: 0 1px 5px rgba(0,0,0,.5);
     }
 
-    @media (max-width: 900px) {
-      .main {
-        grid-template-columns: minmax(0, 1fr) 35%;
-        gap: 35px;
+    @media (max-width: 1100px) {
+      .site::before {
+        left: 45%;
       }
 
-      .portrait img {
-        height: 400px;
+      .site::after,
+      .main {
+        width: 45%;
+      }
+
+      .main {
+        padding-right: 26px;
+      }
+
+      h1 {
+        font-size: clamp(52px, 6vw, 76px);
+      }
+
+      h2 {
+        font-size: 24px;
       }
     }
 
     @media (max-width: 700px) {
-      .header,
-      .main,
-      .footer {
-        width: calc(100% - 40px);
+      .site {
+        min-height: 100svh;
+      }
+
+      .site::before {
+        inset: auto 0 0 0;
+        height: 52%;
+        background-position: center 45%;
+      }
+
+      .site::after {
+        inset: 0 0 auto 0;
+        width: 100%;
+        height: 52%;
       }
 
       .header {
-        flex-wrap: wrap;
-        gap: 20px;
-        padding-top: 24px;
+        width: calc(100% - 36px);
+        padding: 22px 0 17px;
+        gap: 14px;
       }
 
       .logo {
-        font-size: 29px;
+        font-size: 24px;
       }
 
       .navigation {
-        gap: 24px;
+        gap: 15px;
       }
 
       .navigation a {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .main {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 35px;
-        padding-top: 48px;
-        padding-bottom: 55px;
+        width: 100%;
+        flex: none;
+        display: block;
+        padding: 56px 24px 65px;
+        background: var(--green);
       }
 
       .content {
-        max-width: 100%;
+        max-width: 560px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        margin-bottom: 22px;
       }
 
       h1 {
-        font-size: 38px;
+        font-size: clamp(54px, 13vw, 76px);
       }
 
-      .intro {
-        font-size: 17px;
+      .line {
+        margin: 29px 0 27px;
       }
 
-      .body-text {
+      h2 {
+        font-size: clamp(22px, 5.5vw, 28px);
+      }
+
+      .description {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .founder {
+        margin-top: 38px;
+      }
+
+      .founder-name {
+        font-size: 12px;
+      }
+
+      .founder-role {
         font-size: 14px;
       }
 
-      .portrait {
-        max-width: 420px;
-        align-self: center;
+      .footer {
+        width: calc(100% - 36px);
+        margin-top: auto;
+        min-height: 45vh;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 370px) {
+      .logo {
+        font-size: 21px;
       }
 
-      .portrait img {
-        height: auto;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-        object-position: center 35%;
+      .navigation {
+        gap: 11px;
+      }
+
+      .navigation a {
+        font-size: 11px;
+      }
+
+      .main {
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
   </style>
@@ -269,68 +328,37 @@
 
       <nav class="navigation" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="about.html" class="active" aria-current="page">About</a>
+        <a href="about.html" class="active" aria-current="page">Studio</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
 
     <main class="main">
-
-      <section class="content" aria-labelledby="about-title">
+      <div class="content">
 
         <p class="eyebrow">THE STUDIO</p>
 
-        <h1 id="about-title">About SONNEH.</h1>
+        <h1>Studio</h1>
 
-        <p class="intro">
-          SONNEH is an independent design studio based
-          in Perth, Western Australia, specialising in
-          interior design, concept development and
-          design strategy.
+        <div class="line" aria-hidden="true"></div>
+
+        <h2>Understanding Before Designing.</h2>
+
+        <p class="description">
+          SONNEH is an independent design studio based in
+          Perth, Western Australia, exploring the relationship
+          between people, space and identity through interior
+          design, concept development and design strategy.
         </p>
 
-        <div class="body-text">
-          <p>
-            Led by Amir Sonneh, the studio draws on
-            international experience across Australia,
-            Iran and Italy, spanning more than 40
-            residential, commercial and heritage projects.
-          </p>
-
-          <p>
-            Our approach begins with understanding people:
-            how they live, work and interact with the
-            spaces around them. We explore the relationship
-            between human behaviour, spatial identity,
-            materials and function.
-          </p>
-
-          <p>
-            From early concepts to considered design
-            solutions, SONNEH brings together creative
-            thinking and strategic insight to transform
-            complexity into clarity.
+        <div class="founder">
+          <p class="founder-name">AMIR SONNEH</p>
+          <p class="founder-role">
+            Founder / Concept Designer &amp; Design Strategist
           </p>
         </div>
 
-        <div class="signature">
-          <strong>AMIR SONNEH</strong>
-          <span>Concept Designer &amp; Design Strategist</span>
-          <span>Perth, Western Australia</span>
-        </div>
-
-      </section>
-
-      <figure class="portrait">
-        <img
-          src="sonneh-about-portrait.png"
-          alt="Black and white portrait of Amir Sonneh seated in an architectural interior"
-          loading="eager"
-          decoding="async"
-        >
-        <figcaption>AMIR SONNEH — FOUNDER</figcaption>
-      </figure>
-
+      </div>
     </main>
 
     <footer class="footer">
