@@ -5,283 +5,207 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#00512F">
-<meta name="description" content="SONNEH — Concept Design and Design Strategy. Independent design studio in Perth, Western Australia.">
+<meta name="description" content="SONNEH is an independent concept design, interior design and design strategy studio based in Perth, Western Australia.">
 <title>SONNEH | Concept Design & Design Strategy</title>
-
 <style>
 :root {
   --green: #00512F;
   --white: #FFFFFF;
-  --soft: #D9E8DE;
+  --soft: #E2E9E2;
 }
-
 * { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  min-height: 100%;
-}
-
+html, body { margin: 0; min-height: 100%; }
 body {
-  background: var(--green);
-  color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--white);
+  background: var(--green);
   -webkit-font-smoothing: antialiased;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+a { color: inherit; text-decoration: none; }
 .site {
-  position: relative;
-  isolation: isolate;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
   background: var(--green);
 }
-
-.header, .hero, .footer {
-  position: relative;
-  z-index: 2;
-  width: min(90%, 1500px);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-top: 34px;
-}
-
-.logo {
-  font-size: clamp(28px, 3vw, 43px);
-  font-weight: 800;
-  letter-spacing: -1.8px;
-}
-
-.navigation {
-  display: flex;
-  align-items: center;
-  gap: clamp(22px, 3vw, 52px);
-}
-
-.navigation a {
-  font-size: 17px;
-  font-weight: 600;
-  opacity: .85;
-  padding-bottom: 7px;
-}
-
-.navigation a:hover,
-.navigation a:focus-visible {
-  opacity: 1;
-}
-
-.navigation .active {
-  opacity: 1;
-  border-bottom: 2px solid white;
-}
-
-.hero {
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 110px 0 90px;
-}
-
-.eyebrow {
-  margin: 0 0 36px;
-  font-size: clamp(12px, 1.25vw, 17px);
-  letter-spacing: .21em;
-  font-weight: 500;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(34px, 4.5vw, 76px);
-  font-weight: 800;
-  letter-spacing: -.045em;
-  line-height: 1.12;
-  white-space: nowrap;
-}
-
-.description {
-  max-width: 620px;
-  margin: 32px 0 0;
-  font-size: clamp(17px, 1.5vw, 23px);
-  line-height: 1.6;
-  color: var(--soft);
-}
-
-.location {
-  margin-top: 55px;
-}
-
-.location-line {
-  width: 54px;
-  height: 1px;
-  margin-bottom: 24px;
-  background: white;
-}
-
-.location p {
-  margin: 0;
-  font-size: 13px;
-  letter-spacing: .24em;
-}
-
-.footer {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px 0 27px;
-  font-size: 13px;
-  color: var(--soft);
-}
-
-/* Main animated composition */
-
-.artwork {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.artwork svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.contour {
-  fill: none;
-  stroke: white;
-  stroke-width: 1.3;
-  vector-effect: non-scaling-stroke;
-  stroke-linecap: round;
-}
-
-.fragment {
-  fill: none;
-  stroke: white;
-  stroke-width: 3;
-  vector-effect: non-scaling-stroke;
-  stroke-linecap: round;
-}
-
-/* Keeps the entire left text zone clear */
-
-.artwork::after {
+.site::before {
   content: "";
   position: absolute;
-  z-index: 1;
+  z-index: -2;
+  inset: 0 0 0 46%;
+  background-image: url("sonneh-interior-background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.site::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
   inset: 0;
   background: linear-gradient(
     90deg,
     var(--green) 0%,
-    var(--green) 24%,
-    rgba(0,81,47,.97) 34%,
-    rgba(0,81,47,.75) 45%,
-    transparent 69%
+    var(--green) 30%,
+    rgba(0,81,47,.96) 40%,
+    rgba(0,81,47,.76) 51%,
+    rgba(0,81,47,.12) 78%,
+    rgba(0,81,47,0) 100%
   );
-  pointer-events: none;
 }
-
-@media (max-width: 1100px) {
-  h1 {
-    white-space: normal;
-    max-width: 850px;
-  }
+.header, .hero, .footer {
+  width: min(88%, 1480px);
+  margin-left: auto;
+  margin-right: auto;
 }
-
-@media (max-width: 650px) {
-  .header {
-    width: calc(100% - 40px);
-    padding-top: 24px;
-    flex-wrap: wrap;
-    gap: 22px;
-  }
-
-  .logo { font-size: 32px; }
-
-  .navigation { gap: 25px; }
-
-  .navigation a { font-size: 14px; }
-
-  .hero {
-    width: calc(100% - 40px);
-    padding: 95px 0 65px;
-  }
-
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: .14em;
-    line-height: 1.8;
-    margin-bottom: 28px;
-  }
-
-  h1 {
-    font-size: clamp(38px, 9vw, 56px);
-  }
-
-  .description {
-    font-size: 17px;
-    max-width: 420px;
-  }
-
-  .location { margin-top: 45px; }
-
-  .location p { font-size: 11px; }
-
-  .footer {
-    width: calc(100% - 40px);
-    font-size: 12px;
-  }
-
-  .artwork svg {
-    transform: translate(10%, 20%) scale(1.2);
-    transform-origin: center;
-  }
-
-  .artwork::after {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 42px 0 25px;
+  border-bottom: 1px solid rgba(255,255,255,.55);
+}
+.logo {
+  font-size: clamp(28px, 2.7vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.6px;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 50px);
+}
+.navigation a {
+  font-size: 17px;
+  font-weight: 600;
+  opacity: .9;
+  padding-bottom: 6px;
+}
+.navigation a:hover,
+.navigation a:focus-visible { opacity: 1; }
+.navigation .active {
+  border-bottom: 2px solid var(--white);
+  opacity: 1;
+}
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 0;
+}
+.eyebrow {
+  font-size: clamp(12px, 1.15vw, 17px);
+  letter-spacing: .2em;
+  margin: 0 0 43px;
+}
+h1 {
+  font-size: clamp(35px, 3.25vw, 54px);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  white-space: nowrap;
+  margin: 0;
+}
+.description {
+  max-width: 620px;
+  font-size: clamp(17px, 1.35vw, 21px);
+  line-height: 1.65;
+  margin: 37px 0 0;
+  color: var(--soft);
+}
+.location {
+  margin-top: 48px;
+}
+.location-line {
+  height: 1px;
+  width: 68px;
+  background: var(--white);
+  margin-bottom: 27px;
+}
+.location p {
+  font-size: 13px;
+  letter-spacing: .2em;
+  margin: 0;
+}
+.footer {
+  padding: 24px 0 28px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 13px;
+  text-shadow: 0 1px 5px rgba(0,0,0,.3);
+}
+@media (max-width: 1050px) {
+  h1 { white-space: normal; max-width: 780px; }
+  .site::before { left: 35%; }
+  .site::after {
     background: linear-gradient(
-      180deg,
+      90deg,
       var(--green) 0%,
-      rgba(0,81,47,.96) 42%,
-      rgba(0,81,47,.35) 75%,
-      transparent 100%
+      rgba(0,81,47,.95) 35%,
+      rgba(0,81,47,.48) 75%,
+      rgba(0,81,47,.18) 100%
     );
   }
 }
+@media (max-width: 650px) {
+  .header, .hero, .footer {
+    width: calc(100% - 40px);
+  }
+  .header {
+    padding-top: 26px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .logo { font-size: 32px; }
+  .navigation { gap: 22px; }
+  .navigation a { font-size: 14px; }
+  .hero { padding: 85px 0; }
+  .eyebrow {
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: .13em;
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: clamp(37px, 8.5vw, 52px);
+    max-width: 100%;
+  }
+  .description {
+    font-size: 17px;
+    max-width: 370px;
+    margin-top: 28px;
+  }
+  .location { margin-top: 40px; }
+  .location p { font-size: 11px; }
+  .site::before {
+    inset: 34% 0 0 0;
+    background-position: 57% center;
+  }
+  .site::after {
+    background: linear-gradient(
+      180deg,
+      var(--green) 0%,
+      rgba(0,81,47,.97) 37%,
+      rgba(0,81,47,.85) 60%,
+      rgba(0,81,47,.32) 100%
+    );
+  }
+  .footer { font-size: 12px; }
+}
 </style>
 </head>
-
 <body>
 <div class="site">
-
-  <div class="artwork" aria-hidden="true">
-    <svg viewBox="0 0 1600 900"
-         preserveAspectRatio="xMidYMid slice">
-      <g id="contours"></g>
-      <g id="fragments"></g>
-    </svg>
-  </div>
-
   <header class="header">
-    <a class="logo" href="index.html"
-       aria-label="SONNEH Home">SONNEH</a>
-
-    <nav class="navigation"
-         aria-label="Main navigation">
-      <a href="index.html" class="active"
-         aria-current="page">Home</a>
+    <a class="logo" href="index.html" aria-label="SONNEH Home">SONNEH</a>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html" class="active" aria-current="page">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -289,14 +213,14 @@ h1 {
 
   <main class="hero">
     <p class="eyebrow">
-      CONCEPT DESIGN &amp; DESIGN STRATEGY
+      INTERIOR DESIGN &amp; DESIGN STRATEGY
     </p>
 
     <h1>From Complexity to Clarity.</h1>
 
     <p class="description">
-      Design thinking that transforms complexity into
-      meaningful spaces and considered solutions.
+      Creating considered interiors that connect people,
+      place and purpose.
     </p>
 
     <div class="location">
@@ -309,204 +233,5 @@ h1 {
     &copy; SONNEH 2026
   </footer>
 </div>
-
-<script>
-(() => {
-  "use strict";
-
-  const NS = "http://www.w3.org/2000/svg";
-  const contourGroup = document.getElementById("contours");
-  const fragmentGroup = document.getElementById("fragments");
-
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  const contours = [];
-  const fragments = [];
-
-  let seed = 14527;
-
-  function rand() {
-    seed = (seed * 16807) % 2147483647;
-    return (seed - 1) / 2147483646;
-  }
-
-  function svgElement(tag, attrs, parent) {
-    const element = document.createElementNS(NS, tag);
-
-    for (const [name, value] of Object.entries(attrs)) {
-      element.setAttribute(name, value);
-    }
-
-    parent.appendChild(element);
-    return element;
-  }
-
-  function mix(a, b, t) {
-    return a + (b - a) * t;
-  }
-
-  function ease(t) {
-    t = Math.max(0, Math.min(1, t));
-    return t * t * (3 - 2 * t);
-  }
-
-  // Each contour has two sets of control points:
-  // an irregular beginning and a smooth ending.
-  // This produces an actual geometric transition.
-
-  function makeCurve(i, clarity) {
-    const y = 525 + i * 15.5;
-
-    const initial = [
-      [560, y + 80],
-      [690, y - 80],
-      [750, y + 120],
-      [900, y - 65],
-      [1020, y + 100],
-      [1120, y - 115],
-      [1290, y + 35],
-      [1470, y - 130]
-    ];
-
-    const ordered = [
-      [360, y + 155],
-      [580, y + 125],
-      [730, y - 45],
-      [900, y - 22],
-      [1050, y + 12],
-      [1110, y + 35],
-      [1230, y - 65],
-      [1450, y - 105]
-    ];
-
-    const p = initial.map((point, index) => [
-      mix(point[0], ordered[index][0], clarity),
-      mix(point[1], ordered[index][1], clarity)
-    ]);
-
-    return [
-      `M ${p[0][0]} ${p[0][1]}`,
-      `C ${p[1][0]} ${p[1][1]},`,
-      `${p[2][0]} ${p[2][1]},`,
-      `${p[3][0]} ${p[3][1]}`,
-      `C ${p[4][0]} ${p[4][1]},`,
-      `${p[5][0]} ${p[5][1]},`,
-      `${p[6][0]} ${p[6][1]}`,
-      `L ${p[7][0]} ${p[7][1]}`
-    ].join(" ");
-  }
-
-  // 15 carefully spaced contours.
-  for (let i = 0; i < 15; i++) {
-    const path = svgElement("path", {
-      class: "contour",
-      d: makeCurve(i, 0)
-    }, contourGroup);
-
-    contours.push(path);
-  }
-
-  // Scattered fragments, inspired by the business card.
-  // Includes straight and curved marks.
-
-  for (let i = 0; i < 34; i++) {
-    const x = 860 + rand() * 620;
-    const y = 135 + rand() * 400;
-    const length = 8 + rand() * 19;
-    const angle = rand() * 320 - 160;
-    const curved = i % 4 === 0;
-
-    const d = curved
-      ? `M ${-length/2} 4 Q 0 -8 ${length/2} 0`
-      : `M ${-length/2} 0 L ${length/2} 0`;
-
-    const el = svgElement("path", {
-      class: "fragment",
-      d
-    }, fragmentGroup);
-
-    fragments.push({
-      el,
-      x,
-      y,
-      angle,
-      targetX: 1000 + rand() * 300,
-      targetY: 410 + rand() * 160
-    });
-  }
-
-  // One complete cycle lasts 10 seconds:
-  //
-  // 0-2s   Complexity
-  // 2-4s   Transition begins
-  // 4-6s   Lines become ordered
-  // 6-8s   Clarity
-  // 8-10s  Hold, then soft return
-
-  function render(ms) {
-    const seconds = (ms % 10000) / 1000;
-
-    let clarity;
-
-    if (seconds < 2) {
-      clarity = 0;
-    } else if (seconds < 6) {
-      clarity = ease((seconds - 2) / 4);
-    } else if (seconds < 8.5) {
-      clarity = 1;
-    } else {
-      clarity = 1 - ease((seconds - 8.5) / 1.5);
-    }
-
-    contours.forEach((path, i) => {
-      path.setAttribute("d", makeCurve(i, clarity));
-
-      const highlight = i % 4 === 0 ? .53 : .25;
-
-      path.style.opacity = mix(
-        .07,
-        highlight,
-        clarity
-      );
-    });
-
-    fragments.forEach((item, i) => {
-      const t = ease(Math.min(1, clarity * 1.25));
-
-      const x = mix(item.x, item.targetX, t);
-      const y = mix(item.y, item.targetY, t);
-      const angle = mix(item.angle, 0, t);
-
-      item.el.setAttribute(
-        "transform",
-        `translate(${x} ${y}) rotate(${angle})`
-      );
-
-      item.el.style.opacity = Math.max(
-        0,
-        .9 * (1 - t)
-      );
-    });
-  }
-
-  if (reducedMotion) {
-    render(7000);
-  } else {
-    let start = null;
-
-    function animate(timestamp) {
-      if (start === null) start = timestamp;
-
-      render(timestamp - start);
-      requestAnimationFrame(animate);
-    }
-
-    requestAnimationFrame(animate);
-  }
-})();
-</script>
-
 </body>
 </html>
