@@ -1,51 +1,353 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — SONNEH</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00512F">
+  <meta name="description" content="About SONNEH, an independent interior design and design strategy studio based in Perth, Western Australia.">
+  <title>About | SONNEH Design Studio</title>
+
+  <style>
+    :root {
+      --green: #00512F;
+      --white: #FFFFFF;
+      --soft: #E2E9E2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--green);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      background: var(--green);
+    }
+
+    .header,
+    .main,
+    .footer {
+      width: min(94%, 1540px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 26px 0 19px;
+      border-bottom: 1px solid rgba(255,255,255,.38);
+    }
+
+    .logo {
+      font-size: clamp(25px, 2.1vw, 34px);
+      font-weight: 800;
+      letter-spacing: -1.3px;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: clamp(22px, 3vw, 46px);
+    }
+
+    .navigation a {
+      font-size: 14px;
+      font-weight: 600;
+      opacity: .82;
+      padding-bottom: 5px;
+    }
+
+    .navigation a:hover,
+    .navigation a:focus-visible {
+      opacity: 1;
+    }
+
+    .navigation .active {
+      opacity: 1;
+      border-bottom: 1px solid var(--white);
+    }
+
+    .main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
+      gap: clamp(50px, 7vw, 120px);
+      align-items: center;
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+
+    .content {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      margin: 0 0 28px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 30px;
+      font-size: clamp(38px, 3.4vw, 56px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    .intro {
+      font-size: clamp(17px, 1.25vw, 20px);
+      line-height: 1.6;
+      color: var(--white);
+      margin: 0 0 27px;
+    }
+
+    .body-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--soft);
+    }
+
+    .body-text p {
+      margin: 0 0 19px;
+    }
+
+    .signature {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.35);
+    }
+
+    .signature strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: .10em;
+      margin-bottom: 8px;
+    }
+
+    .signature span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--soft);
+    }
+
+    .portrait {
+      margin: 0;
+      width: 100%;
+      position: relative;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%);
+    }
+
+    .portrait figcaption {
+      margin-top: 15px;
+      font-size: 11px;
+      letter-spacing: .16em;
+      color: var(--soft);
+      text-transform: uppercase;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px 0 24px;
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.25);
+    }
+
+    @media (max-width: 900px) {
+      .main {
+        gap: 40px;
+        grid-template-columns: 1fr 0.85fr;
+      }
+
+      .portrait img {
+        aspect-ratio: 3 / 4;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .header,
+      .main,
+      .footer {
+        width: calc(100% - 40px);
+      }
+
+      .header {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-top: 24px;
+      }
+
+      .logo {
+        font-size: 29px;
+      }
+
+      .navigation {
+        gap: 24px;
+      }
+
+      .navigation a {
+        font-size: 13px;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 42px;
+        padding-top: 60px;
+        padding-bottom: 65px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .intro {
+        font-size: 18px;
+      }
+
+      .body-text {
+        font-size: 15px;
+      }
+
+      .portrait {
+        max-width: 520px;
+      }
+
+      .portrait img {
+        aspect-ratio: 4 / 3;
+        object-position: center 40%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <nav class="nav">
-      <a class="brand" href="index.html">SONNEH</a>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="site">
 
-  <main class="page">
-    <h1>About</h1>
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="SONNEH Home">
+        SONNEH
+      </a>
 
-    <p>
-      SONNEH is an independent design studio based in Perth,
-      Western Australia, focused on concept design,
-      interior design and design strategy.
-    </p>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-    <p>
-      Led by Amir Sonneh, the studio draws on international
-      experience across three continents, spanning more than
-      40 residential, commercial and heritage projects.
-    </p>
+    <main class="main">
 
-    <p>
-      Our approach explores the relationship between
-      people, space, materials and identity.
-    </p>
+      <section class="content" aria-labelledby="about-title">
 
-  </main>
+        <p class="eyebrow">
+          THE STUDIO
+        </p>
 
-  <footer class="footer">
-    <p>© SONNEH 2026</p>
-  </footer>
+        <h1 id="about-title">
+          About SONNEH.
+        </h1>
+
+        <p class="intro">
+          SONNEH is an independent design studio based
+          in Perth, Western Australia, specialising in
+          interior design, concept development and
+          design strategy.
+        </p>
+
+        <div class="body-text">
+
+          <p>
+            Led by Amir Sonneh, the studio draws on
+            international experience across Australia,
+            Iran and Italy, spanning more than 40
+            residential, commercial and heritage projects.
+          </p>
+
+          <p>
+            Our approach begins with understanding people:
+            how they live, work and interact with the
+            spaces around them. We explore the relationship
+            between human behaviour, spatial identity,
+            materials and function.
+          </p>
+
+          <p>
+            From early concepts to considered design
+            solutions, SONNEH brings together creative
+            thinking and strategic insight to transform
+            complexity into clarity.
+          </p>
+
+        </div>
+
+        <div class="signature">
+          <strong>AMIR SONNEH</strong>
+          <span>Concept Designer &amp; Design Strategist</span>
+          <span>Perth, Western Australia</span>
+        </div>
+
+      </section>
+
+      <figure class="portrait">
+        <img
+          src="sonneh-about-portrait.png"
+          alt="Black and white portrait of Amir Sonneh seated in an architectural interior"
+          loading="eager"
+          decoding="async"
+        >
+        <figcaption>
+          AMIR SONNEH — FOUNDER
+        </figcaption>
+      </figure>
+
+    </main>
+
+    <footer class="footer">
+      &copy; SONNEH 2026
+    </footer>
+
+  </div>
 </body>
 </html>
