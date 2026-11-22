@@ -1,44 +1,413 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SONNEH | Design Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00512F">
+  <meta name="description" content="SONNEH — Concept Design & Design Strategy. An independent design studio based in Perth, Western Australia.">
+  <title>SONNEH | Concept Design & Design Strategy</title>
+
+  <style>
+    :root {
+      --green: #00512F;
+      --white: #FFFFFF;
+      --soft: #D9E8DE;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--green);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .site::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background: radial-gradient(
+        ellipse at 75% 60%,
+        rgba(0, 25, 16, .18),
+        transparent 65%
+      );
+    }
+
+    .topography {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .contour {
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 1.1;
+      vector-effect: non-scaling-stroke;
+      opacity: .22;
+      animation: breathe 9s ease-in-out infinite alternate;
+    }
+
+    .contour:nth-child(3n) {
+      opacity: .42;
+    }
+
+    .contour:nth-child(4n) {
+      stroke-width: 1.5;
+    }
+
+    @keyframes breathe {
+      from {
+        transform: translateY(-6px);
+      }
+      to {
+        transform: translateY(7px);
+      }
+    }
+
+    .fragment {
+      fill: none;
+      stroke: white;
+      stroke-width: 3;
+      stroke-linecap: square;
+      opacity: .72;
+      animation: resolve 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes resolve {
+      0%, 18% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: .8;
+      }
+      75%, 100% {
+        transform: translate(var(--dx), var(--dy))
+                   rotate(var(--rot));
+        opacity: .08;
+      }
+    }
+
+    .header {
+      width: min(100% - 10%, 1500px);
+      margin: 0 auto;
+      padding-top: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: clamp(28px, 3vw, 43px);
+      font-weight: 800;
+      letter-spacing: -1.8px;
+      line-height: 1;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: clamp(22px, 3vw, 52px);
+    }
+
+    .navigation a {
+      font-size: 17px;
+      font-weight: 600;
+      opacity: .85;
+      padding-bottom: 7px;
+      transition: opacity .2s ease;
+    }
+
+    .navigation a:hover,
+    .navigation a:focus-visible {
+      opacity: 1;
+    }
+
+    .navigation .active {
+      opacity: 1;
+      border-bottom: 2px solid white;
+    }
+
+    .hero {
+      width: min(100% - 10%, 1500px);
+      margin: auto;
+      padding: 110px 0 90px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 36px;
+      font-size: clamp(12px, 1.25vw, 17px);
+      font-weight: 500;
+      letter-spacing: .21em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 4.5vw, 76px);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: 1.12;
+      white-space: nowrap;
+    }
+
+    .description {
+      max-width: 620px;
+      margin: 32px 0 0;
+      font-size: clamp(17px, 1.5vw, 23px);
+      line-height: 1.6;
+      color: var(--soft);
+    }
+
+    .location {
+      margin-top: 55px;
+    }
+
+    .location-line {
+      width: 54px;
+      height: 1px;
+      background: white;
+      margin-bottom: 24px;
+    }
+
+    .location p {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: .24em;
+    }
+
+    .footer {
+      width: min(100% - 10%, 1500px);
+      margin: 0 auto;
+      padding: 20px 0 27px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 13px;
+      color: var(--soft);
+    }
+
+    @media (max-width: 1000px) {
+      h1 {
+        white-space: normal;
+        max-width: 850px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .header {
+        width: calc(100% - 40px);
+        padding-top: 24px;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .logo {
+        font-size: 32px;
+      }
+
+      .navigation {
+        gap: 25px;
+      }
+
+      .navigation a {
+        font-size: 14px;
+      }
+
+      .hero {
+        width: calc(100% - 40px);
+        padding: 100px 0 70px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        line-height: 1.8;
+        letter-spacing: .14em;
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        font-size: clamp(38px, 9vw, 56px);
+        line-height: 1.12;
+      }
+
+      .description {
+        font-size: 17px;
+        max-width: 420px;
+      }
+
+      .location {
+        margin-top: 45px;
+      }
+
+      .location p {
+        font-size: 11px;
+      }
+
+      .footer {
+        width: calc(100% - 40px);
+        font-size: 12px;
+      }
+
+      .topography {
+        opacity: .5;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .contour,
+      .fragment {
+        animation: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <nav class="nav">
-      <a class="brand" href="index.html">SONNEH</a>
-      <ul class="menu">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="site">
 
-  <main class="hero">
-    <h1 class="title">SONNEH</h1>
-    <div style="font-size:28px;font-weight:600;">
-      Design Studio
-    </div>
+    <svg class="topography"
+         viewBox="0 0 1600 900"
+         preserveAspectRatio="xMidYMid slice"
+         aria-hidden="true">
 
-    <p class="tagline" style="margin-top:40px;margin-bottom:8px;">
-      Concept Design &amp; Design Strategy
-    </p>
+      <g id="contours"></g>
+      <g id="fragments"></g>
 
-    <p style="font-size:15px;color:var(--muted);margin:0;">
-      Perth, Western Australia
-    </p>
-  </main>
+    </svg>
 
-  <footer class="footer">
-    <p>© SONNEH 2026</p>
-  </footer>
+    <header class="header">
+      <a href="index.html"
+         class="logo"
+         aria-label="SONNEH Home">
+        SONNEH
+      </a>
+
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <p class="eyebrow">
+        CONCEPT DESIGN &amp; DESIGN STRATEGY
+      </p>
+
+      <h1>From Complexity to Clarity.</h1>
+
+      <p class="description">
+        Design thinking that transforms complexity into
+        meaningful spaces and considered solutions.
+      </p>
+
+      <div class="location">
+        <div class="location-line"></div>
+        <p>PERTH, WESTERN AUSTRALIA</p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      &copy; SONNEH 2026
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const ns = "http://www.w3.org/2000/svg";
+      const contours = document.getElementById("contours");
+      const fragments = document.getElementById("fragments");
+
+      // Thin topographic curves inspired by the SONNEH card.
+      // No external image or animation library is required.
+
+      for (let i = 0; i < 25; i++) {
+        const path = document.createElementNS(ns, "path");
+
+        const offset = i * 17;
+        const y = 780 - offset;
+
+        const d = [
+          `M 170 ${y + 140}`,
+          `C 430 ${y + 115}, 580 ${y + 30}, 780 ${y}`,
+          `S 1040 ${y + 105}, 1200 ${y - 45}`,
+          `S 1450 ${y - 125}, 1720 ${y - 170}`
+        ].join(" ");
+
+        path.setAttribute("d", d);
+        path.setAttribute("class", "contour");
+        path.style.animationDelay = `${-i * .22}s`;
+
+        contours.appendChild(path);
+      }
+
+      // Deterministic scattered strokes.
+      // They gradually fade and move towards order.
+
+      let seed = 72931;
+
+      function random() {
+        seed = (seed * 16807) % 2147483647;
+        return (seed - 1) / 2147483646;
+      }
+
+      for (let i = 0; i < 38; i++) {
+        const x = 850 + random() * 640;
+        const y = 130 + random() * 470;
+        const length = 8 + random() * 19;
+        const angle = random() * 360;
+
+        const line = document.createElementNS(ns, "line");
+
+        line.setAttribute("x1", -length / 2);
+        line.setAttribute("y1", 0);
+        line.setAttribute("x2", length / 2);
+        line.setAttribute("y2", 0);
+        line.setAttribute("class", "fragment");
+
+        line.setAttribute(
+          "transform",
+          `translate(${x} ${y}) rotate(${angle})`
+        );
+
+        line.style.setProperty("--dx", `${random() * 60 - 30}px`);
+        line.style.setProperty("--dy", `${random() * 45 + 15}px`);
+        line.style.setProperty("--rot", `${random() * 25 - 12}deg`);
+        line.style.animationDelay = `${-random() * 3}s`;
+
+        fragments.appendChild(line);
+      }
+    })();
+  </script>
 </body>
 </html>
