@@ -45,7 +45,6 @@
       background: var(--green);
     }
 
-    /* Full-width architectural background */
     .site::before {
       content: "";
       position: absolute;
@@ -57,7 +56,6 @@
       background-position: center center;
     }
 
-    /* Subtle gradient for text readability */
     .site::after {
       content: "";
       position: absolute;
@@ -198,61 +196,108 @@
       .header,
       .hero,
       .footer {
-        width: calc(100% - 40px);
+        width: calc(100% - 36px);
+      }
+
+      .site {
+        min-height: 100svh;
+      }
+
+      /*
+       * Mobile: one continuous full-screen image.
+       * No separate panels or hard colour boundary.
+       */
+      .site::before {
+        background-size: cover;
+        background-position: 70% center;
+      }
+
+      /*
+       * Smooth green overlay.
+       * Keeps the image visible while protecting text.
+       */
+      .site::after {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(0,81,47,.55) 0%,
+            rgba(0,81,47,.36) 25%,
+            rgba(0,81,47,.48) 55%,
+            rgba(0,81,47,.28) 100%
+          ),
+          linear-gradient(
+            90deg,
+            rgba(0,81,47,.48) 0%,
+            rgba(0,81,47,.18) 100%
+          );
       }
 
       .header {
-        padding-top: 24px;
-        flex-wrap: wrap;
-        gap: 20px;
+        padding: 23px 0 17px;
+        gap: 12px;
+        flex-wrap: nowrap;
       }
 
       .logo {
-        font-size: 29px;
+        font-size: clamp(23px, 6vw, 29px);
+        flex-shrink: 0;
       }
 
       .navigation {
-        gap: 24px;
+        gap: clamp(12px, 3vw, 22px);
       }
 
       .navigation a {
-        font-size: 13px;
-      }
-
-      .site::before {
-        background-position: 62% center;
-      }
-
-      .site::after {
-        background: linear-gradient(
-          180deg,
-          rgba(0,81,47,.90) 0%,
-          rgba(0,81,47,.75) 48%,
-          rgba(0,81,47,.30) 100%
-        );
+        font-size: clamp(11px, 3vw, 13px);
+        white-space: nowrap;
       }
 
       .hero {
-        padding: 90px 0 110px;
+        padding: 80px 0 100px;
       }
 
       .eyebrow {
         font-size: 10px;
         letter-spacing: .13em;
         line-height: 1.8;
+        margin-bottom: 28px;
       }
 
       h1 {
         font-size: clamp(34px, 8vw, 46px);
+        max-width: 100%;
       }
 
       .description {
         font-size: 16px;
         max-width: 350px;
+        line-height: 1.65;
       }
 
       .location {
         margin-top: 40px;
+      }
+
+      .footer {
+        padding-bottom: 22px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo {
+        font-size: 23px;
+      }
+
+      .navigation {
+        gap: 11px;
+      }
+
+      .navigation a {
+        font-size: 11px;
+      }
+
+      h1 {
+        font-size: 32px;
       }
     }
   </style>
