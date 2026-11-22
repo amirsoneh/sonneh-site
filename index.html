@@ -15,9 +15,7 @@
       --soft: #D9E8DE;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -39,89 +37,27 @@
     .site {
       position: relative;
       isolation: isolate;
-      min-height: 100svh;
       display: flex;
       flex-direction: column;
+      min-height: 100svh;
       overflow: hidden;
+      background: var(--green);
     }
 
-    .site::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background: radial-gradient(
-        ellipse at 75% 60%,
-        rgba(0, 25, 16, .18),
-        transparent 65%
-      );
-    }
-
-    .topography {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .contour {
-      fill: none;
-      stroke: #FFFFFF;
-      stroke-width: 1.1;
-      vector-effect: non-scaling-stroke;
-      opacity: .22;
-      animation: breathe 9s ease-in-out infinite alternate;
-    }
-
-    .contour:nth-child(3n) {
-      opacity: .42;
-    }
-
-    .contour:nth-child(4n) {
-      stroke-width: 1.5;
-    }
-
-    @keyframes breathe {
-      from {
-        transform: translateY(-6px);
-      }
-      to {
-        transform: translateY(7px);
-      }
-    }
-
-    .fragment {
-      fill: none;
-      stroke: white;
-      stroke-width: 3;
-      stroke-linecap: square;
-      opacity: .72;
-      animation: resolve 9s ease-in-out infinite alternate;
-    }
-
-    @keyframes resolve {
-      0%, 18% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: .8;
-      }
-      75%, 100% {
-        transform: translate(var(--dx), var(--dy))
-                   rotate(var(--rot));
-        opacity: .08;
-      }
+    .header, .hero, .footer {
+      position: relative;
+      z-index: 2;
+      width: min(90%, 1500px);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .header {
-      width: min(100% - 10%, 1500px);
-      margin: 0 auto;
       padding-top: 34px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 24px;
     }
 
     .logo {
@@ -142,7 +78,6 @@
       font-weight: 600;
       opacity: .85;
       padding-bottom: 7px;
-      transition: opacity .2s ease;
     }
 
     .navigation a:hover,
@@ -156,11 +91,9 @@
     }
 
     .hero {
-      width: min(100% - 10%, 1500px);
-      margin: auto;
+      margin-top: auto;
+      margin-bottom: auto;
       padding: 110px 0 90px;
-      position: relative;
-      z-index: 1;
     }
 
     .eyebrow {
@@ -171,6 +104,8 @@
     }
 
     h1 {
+      position: relative;
+      z-index: 3;
       margin: 0;
       font-size: clamp(34px, 4.5vw, 76px);
       font-weight: 800;
@@ -205,8 +140,6 @@
     }
 
     .footer {
-      width: min(100% - 10%, 1500px);
-      margin: 0 auto;
       padding: 20px 0 27px;
       display: flex;
       justify-content: flex-end;
@@ -214,10 +147,63 @@
       color: var(--soft);
     }
 
-    @media (max-width: 1000px) {
+    /* Animated artwork: right side only */
+    .artwork {
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      top: 10%;
+      width: 51%;
+      height: 82%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .artwork svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .topo-line {
+      fill: none;
+      stroke: white;
+      stroke-width: 1.15;
+      vector-effect: non-scaling-stroke;
+      opacity: .23;
+    }
+
+    .fragment {
+      fill: none;
+      stroke: white;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    /* Soft boundary between artwork and text */
+    .artwork::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        var(--green) 0%,
+        rgba(0,81,47,.6) 8%,
+        transparent 30%
+      );
+    }
+
+    @media (max-width: 1100px) {
       h1 {
         white-space: normal;
         max-width: 850px;
+      }
+
+      .artwork {
+        width: 55%;
+        opacity: .8;
       }
     }
 
@@ -229,21 +215,15 @@
         gap: 24px;
       }
 
-      .logo {
-        font-size: 32px;
-      }
+      .logo { font-size: 32px; }
 
-      .navigation {
-        gap: 25px;
-      }
+      .navigation { gap: 25px; }
 
-      .navigation a {
-        font-size: 14px;
-      }
+      .navigation a { font-size: 14px; }
 
       .hero {
         width: calc(100% - 40px);
-        padding: 100px 0 70px;
+        padding: 95px 0 65px;
       }
 
       .eyebrow {
@@ -263,28 +243,29 @@
         max-width: 420px;
       }
 
-      .location {
-        margin-top: 45px;
-      }
+      .location { margin-top: 45px; }
 
-      .location p {
-        font-size: 11px;
-      }
+      .location p { font-size: 11px; }
 
       .footer {
         width: calc(100% - 40px);
         font-size: 12px;
       }
 
-      .topography {
-        opacity: .5;
+      .artwork {
+        top: 43%;
+        right: -20%;
+        width: 90%;
+        height: 48%;
+        opacity: .3;
       }
-    }
 
-    @media (prefers-reduced-motion: reduce) {
-      .contour,
-      .fragment {
-        animation: none;
+      .artwork::before {
+        background: linear-gradient(
+          180deg,
+          var(--green),
+          transparent 45%
+        );
       }
     }
   </style>
@@ -293,25 +274,22 @@
 <body>
   <div class="site">
 
-    <svg class="topography"
-         viewBox="0 0 1600 900"
-         preserveAspectRatio="xMidYMid slice"
-         aria-hidden="true">
-
-      <g id="contours"></g>
-      <g id="fragments"></g>
-
-    </svg>
+    <div class="artwork" aria-hidden="true">
+      <svg id="sonneh-art"
+           viewBox="0 0 700 700"
+           preserveAspectRatio="xMidYMid meet">
+        <g id="topo"></g>
+        <g id="pieces"></g>
+      </svg>
+    </div>
 
     <header class="header">
-      <a href="index.html"
-         class="logo"
-         aria-label="SONNEH Home">
+      <a class="logo" href="index.html" aria-label="SONNEH Home">
         SONNEH
       </a>
 
       <nav class="navigation" aria-label="Main navigation">
-        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a class="active" href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -338,74 +316,157 @@
     <footer class="footer">
       &copy; SONNEH 2026
     </footer>
+
   </div>
 
   <script>
-    (function () {
+    (() => {
       "use strict";
 
-      const ns = "http://www.w3.org/2000/svg";
-      const contours = document.getElementById("contours");
-      const fragments = document.getElementById("fragments");
+      const NS = "http://www.w3.org/2000/svg";
+      const topo = document.getElementById("topo");
+      const pieces = document.getElementById("pieces");
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-      // Thin topographic curves inspired by the SONNEH card.
-      // No external image or animation library is required.
-
-      for (let i = 0; i < 25; i++) {
-        const path = document.createElementNS(ns, "path");
-
-        const offset = i * 17;
-        const y = 780 - offset;
-
-        const d = [
-          `M 170 ${y + 140}`,
-          `C 430 ${y + 115}, 580 ${y + 30}, 780 ${y}`,
-          `S 1040 ${y + 105}, 1200 ${y - 45}`,
-          `S 1450 ${y - 125}, 1720 ${y - 170}`
-        ].join(" ");
-
-        path.setAttribute("d", d);
-        path.setAttribute("class", "contour");
-        path.style.animationDelay = `${-i * .22}s`;
-
-        contours.appendChild(path);
-      }
-
-      // Deterministic scattered strokes.
-      // They gradually fade and move towards order.
-
-      let seed = 72931;
+      let seed = 20261122;
 
       function random() {
         seed = (seed * 16807) % 2147483647;
         return (seed - 1) / 2147483646;
       }
 
-      for (let i = 0; i < 38; i++) {
-        const x = 850 + random() * 640;
-        const y = 130 + random() * 470;
-        const length = 8 + random() * 19;
-        const angle = random() * 360;
+      function createSVG(tag, attributes, parent) {
+        const el = document.createElementNS(NS, tag);
+        for (const [key, value] of Object.entries(attributes)) {
+          el.setAttribute(key, value);
+        }
+        parent.appendChild(el);
+        return el;
+      }
 
-        const line = document.createElementNS(ns, "line");
+      const lines = [];
 
-        line.setAttribute("x1", -length / 2);
-        line.setAttribute("y1", 0);
-        line.setAttribute("x2", length / 2);
-        line.setAttribute("y2", 0);
-        line.setAttribute("class", "fragment");
+      // Organic, irregular topographic lines.
+      for (let i = 0; i < 17; i++) {
+        const y = 240 + i * 19;
+        const variation = Math.sin(i * .55) * 17;
 
-        line.setAttribute(
-          "transform",
-          `translate(${x} ${y}) rotate(${angle})`
-        );
+        const d = [
+          `M -50 ${y + 35}`,
+          `C 120 ${y - 110 + variation},`,
+          `205 ${y + 105},`,
+          `340 ${y - 35}`,
+          `S 530 ${y - 100 + variation},`,
+          `760 ${y - 85}`
+        ].join(" ");
 
-        line.style.setProperty("--dx", `${random() * 60 - 30}px`);
-        line.style.setProperty("--dy", `${random() * 45 + 15}px`);
-        line.style.setProperty("--rot", `${random() * 25 - 12}deg`);
-        line.style.animationDelay = `${-random() * 3}s`;
+        const path = createSVG("path", {
+          d,
+          class: "topo-line"
+        }, topo);
 
-        fragments.appendChild(line);
+        lines.push(path);
+      }
+
+      const fragments = [];
+
+      // Scattered white marks inspired by the business card.
+      for (let i = 0; i < 46; i++) {
+        const x = 70 + random() * 550;
+        const y = 90 + random() * 480;
+        const length = 7 + random() * 17;
+        const angle = random() * Math.PI * 2;
+
+        const targetX = 80 + (i % 12) * 48;
+        const targetY = 390 + Math.floor(i / 12) * 19;
+
+        const path = createSVG("path", {
+          d: `M ${-length / 2} 0 L ${length / 2} 0`,
+          class: "fragment",
+          transform: `translate(${x} ${y}) rotate(${angle * 180 / Math.PI})`
+        }, pieces);
+
+        fragments.push({
+          el: path,
+          x, y, angle,
+          targetX, targetY
+        });
+      }
+
+      function smooth(t) {
+        return t * t * (3 - 2 * t);
+      }
+
+      function interpolate(a, b, t) {
+        return a + (b - a) * t;
+      }
+
+      // 12-second narrative cycle:
+      // 0-3s scattered complexity
+      // 3-8s transformation
+      // 8-11s clarity
+      // 11-12s soft reset
+
+      function render(time) {
+        const cycle = (time % 12000) / 12000;
+
+        let clarity;
+
+        if (cycle < .25) {
+          clarity = 0;
+        } else if (cycle < .67) {
+          clarity = smooth((cycle - .25) / .42);
+        } else if (cycle < .92) {
+          clarity = 1;
+        } else {
+          clarity = 1 - smooth((cycle - .92) / .08);
+        }
+
+        lines.forEach((line, i) => {
+          const opacity = interpolate(.04, .32, clarity);
+          line.style.opacity = opacity;
+          line.setAttribute(
+            "transform",
+            `translate(0 ${Math.sin(i * .5 + clarity * 2) * (1 - clarity) * 12})`
+          );
+        });
+
+        fragments.forEach((item, i) => {
+          const x = interpolate(item.x, item.targetX, clarity);
+          const y = interpolate(item.y, item.targetY, clarity);
+          const rotation = interpolate(
+            item.angle * 180 / Math.PI,
+            0,
+            clarity
+          );
+
+          item.el.setAttribute(
+            "transform",
+            `translate(${x} ${y}) rotate(${rotation})`
+          );
+
+          item.el.style.opacity = interpolate(
+            .75,
+            .015,
+            clarity
+          );
+        });
+      }
+
+      if (reducedMotion) {
+        render(9600);
+      } else {
+        let start = null;
+
+        function animate(timestamp) {
+          if (start === null) start = timestamp;
+          render(timestamp - start);
+          requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
       }
     })();
   </script>
