@@ -2,473 +2,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#00512F">
-  <meta name="description" content="SONNEH — Concept Design & Design Strategy. An independent design studio based in Perth, Western Australia.">
-  <title>SONNEH | Concept Design & Design Strategy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00512F">
+<meta name="description" content="SONNEH — Concept Design and Design Strategy. Independent design studio in Perth, Western Australia.">
+<title>SONNEH | Concept Design & Design Strategy</title>
 
-  <style>
-    :root {
-      --green: #00512F;
-      --white: #FFFFFF;
-      --soft: #D9E8DE;
-    }
+<style>
+:root {
+  --green: #00512F;
+  --white: #FFFFFF;
+  --soft: #D9E8DE;
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-    }
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
 
-    body {
-      background: var(--green);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+body {
+  background: var(--green);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .site {
-      position: relative;
-      isolation: isolate;
-      display: flex;
-      flex-direction: column;
-      min-height: 100svh;
-      overflow: hidden;
-      background: var(--green);
-    }
+.site {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--green);
+}
 
-    .header, .hero, .footer {
-      position: relative;
-      z-index: 2;
-      width: min(90%, 1500px);
-      margin-left: auto;
-      margin-right: auto;
-    }
+.header, .hero, .footer {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 1500px);
+  margin-left: auto;
+  margin-right: auto;
+}
 
-    .header {
-      padding-top: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 34px;
+}
 
-    .logo {
-      font-size: clamp(28px, 3vw, 43px);
-      font-weight: 800;
-      letter-spacing: -1.8px;
-      line-height: 1;
-    }
+.logo {
+  font-size: clamp(28px, 3vw, 43px);
+  font-weight: 800;
+  letter-spacing: -1.8px;
+}
 
-    .navigation {
-      display: flex;
-      align-items: center;
-      gap: clamp(22px, 3vw, 52px);
-    }
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3vw, 52px);
+}
 
-    .navigation a {
-      font-size: 17px;
-      font-weight: 600;
-      opacity: .85;
-      padding-bottom: 7px;
-    }
+.navigation a {
+  font-size: 17px;
+  font-weight: 600;
+  opacity: .85;
+  padding-bottom: 7px;
+}
 
-    .navigation a:hover,
-    .navigation a:focus-visible {
-      opacity: 1;
-    }
+.navigation a:hover,
+.navigation a:focus-visible {
+  opacity: 1;
+}
 
-    .navigation .active {
-      opacity: 1;
-      border-bottom: 2px solid white;
-    }
+.navigation .active {
+  opacity: 1;
+  border-bottom: 2px solid white;
+}
 
-    .hero {
-      margin-top: auto;
-      margin-bottom: auto;
-      padding: 110px 0 90px;
-    }
+.hero {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 110px 0 90px;
+}
 
-    .eyebrow {
-      margin: 0 0 36px;
-      font-size: clamp(12px, 1.25vw, 17px);
-      font-weight: 500;
-      letter-spacing: .21em;
-    }
+.eyebrow {
+  margin: 0 0 36px;
+  font-size: clamp(12px, 1.25vw, 17px);
+  letter-spacing: .21em;
+  font-weight: 500;
+}
 
-    h1 {
-      position: relative;
-      z-index: 3;
-      margin: 0;
-      font-size: clamp(34px, 4.5vw, 76px);
-      font-weight: 800;
-      letter-spacing: -.045em;
-      line-height: 1.12;
-      white-space: nowrap;
-    }
+h1 {
+  margin: 0;
+  font-size: clamp(34px, 4.5vw, 76px);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+  white-space: nowrap;
+}
 
-    .description {
-      max-width: 620px;
-      margin: 32px 0 0;
-      font-size: clamp(17px, 1.5vw, 23px);
-      line-height: 1.6;
-      color: var(--soft);
-    }
+.description {
+  max-width: 620px;
+  margin: 32px 0 0;
+  font-size: clamp(17px, 1.5vw, 23px);
+  line-height: 1.6;
+  color: var(--soft);
+}
 
-    .location {
-      margin-top: 55px;
-    }
+.location {
+  margin-top: 55px;
+}
 
-    .location-line {
-      width: 54px;
-      height: 1px;
-      background: white;
-      margin-bottom: 24px;
-    }
+.location-line {
+  width: 54px;
+  height: 1px;
+  margin-bottom: 24px;
+  background: white;
+}
 
-    .location p {
-      margin: 0;
-      font-size: 13px;
-      letter-spacing: .24em;
-    }
+.location p {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: .24em;
+}
 
-    .footer {
-      padding: 20px 0 27px;
-      display: flex;
-      justify-content: flex-end;
-      font-size: 13px;
-      color: var(--soft);
-    }
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0 27px;
+  font-size: 13px;
+  color: var(--soft);
+}
 
-    /* Animated artwork: right side only */
-    .artwork {
-      position: absolute;
-      z-index: 0;
-      right: 0;
-      top: 10%;
-      width: 51%;
-      height: 82%;
-      overflow: hidden;
-      pointer-events: none;
-    }
+/* Main animated composition */
 
-    .artwork svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+.artwork {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 
-    .topo-line {
-      fill: none;
-      stroke: white;
-      stroke-width: 1.15;
-      vector-effect: non-scaling-stroke;
-      opacity: .23;
-    }
+.artwork svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
-    .fragment {
-      fill: none;
-      stroke: white;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-    }
+.contour {
+  fill: none;
+  stroke: white;
+  stroke-width: 1.3;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
 
-    /* Soft boundary between artwork and text */
-    .artwork::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background: linear-gradient(
-        90deg,
-        var(--green) 0%,
-        rgba(0,81,47,.6) 8%,
-        transparent 30%
-      );
-    }
+.fragment {
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
 
-    @media (max-width: 1100px) {
-      h1 {
-        white-space: normal;
-        max-width: 850px;
-      }
+/* Keeps the entire left text zone clear */
 
-      .artwork {
-        width: 55%;
-        opacity: .8;
-      }
-    }
+.artwork::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--green) 0%,
+    var(--green) 24%,
+    rgba(0,81,47,.97) 34%,
+    rgba(0,81,47,.75) 45%,
+    transparent 69%
+  );
+  pointer-events: none;
+}
 
-    @media (max-width: 650px) {
-      .header {
-        width: calc(100% - 40px);
-        padding-top: 24px;
-        flex-wrap: wrap;
-        gap: 24px;
-      }
+@media (max-width: 1100px) {
+  h1 {
+    white-space: normal;
+    max-width: 850px;
+  }
+}
 
-      .logo { font-size: 32px; }
+@media (max-width: 650px) {
+  .header {
+    width: calc(100% - 40px);
+    padding-top: 24px;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
 
-      .navigation { gap: 25px; }
+  .logo { font-size: 32px; }
 
-      .navigation a { font-size: 14px; }
+  .navigation { gap: 25px; }
 
-      .hero {
-        width: calc(100% - 40px);
-        padding: 95px 0 65px;
-      }
+  .navigation a { font-size: 14px; }
 
-      .eyebrow {
-        font-size: 11px;
-        line-height: 1.8;
-        letter-spacing: .14em;
-        margin-bottom: 28px;
-      }
+  .hero {
+    width: calc(100% - 40px);
+    padding: 95px 0 65px;
+  }
 
-      h1 {
-        font-size: clamp(38px, 9vw, 56px);
-        line-height: 1.12;
-      }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: .14em;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
 
-      .description {
-        font-size: 17px;
-        max-width: 420px;
-      }
+  h1 {
+    font-size: clamp(38px, 9vw, 56px);
+  }
 
-      .location { margin-top: 45px; }
+  .description {
+    font-size: 17px;
+    max-width: 420px;
+  }
 
-      .location p { font-size: 11px; }
+  .location { margin-top: 45px; }
 
-      .footer {
-        width: calc(100% - 40px);
-        font-size: 12px;
-      }
+  .location p { font-size: 11px; }
 
-      .artwork {
-        top: 43%;
-        right: -20%;
-        width: 90%;
-        height: 48%;
-        opacity: .3;
-      }
+  .footer {
+    width: calc(100% - 40px);
+    font-size: 12px;
+  }
 
-      .artwork::before {
-        background: linear-gradient(
-          180deg,
-          var(--green),
-          transparent 45%
-        );
-      }
-    }
-  </style>
+  .artwork svg {
+    transform: translate(10%, 20%) scale(1.2);
+    transform-origin: center;
+  }
+
+  .artwork::after {
+    background: linear-gradient(
+      180deg,
+      var(--green) 0%,
+      rgba(0,81,47,.96) 42%,
+      rgba(0,81,47,.35) 75%,
+      transparent 100%
+    );
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="site">
+<div class="site">
 
-    <div class="artwork" aria-hidden="true">
-      <svg id="sonneh-art"
-           viewBox="0 0 700 700"
-           preserveAspectRatio="xMidYMid meet">
-        <g id="topo"></g>
-        <g id="pieces"></g>
-      </svg>
-    </div>
-
-    <header class="header">
-      <a class="logo" href="index.html" aria-label="SONNEH Home">
-        SONNEH
-      </a>
-
-      <nav class="navigation" aria-label="Main navigation">
-        <a class="active" href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
-
-    <main class="hero">
-      <p class="eyebrow">
-        CONCEPT DESIGN &amp; DESIGN STRATEGY
-      </p>
-
-      <h1>From Complexity to Clarity.</h1>
-
-      <p class="description">
-        Design thinking that transforms complexity into
-        meaningful spaces and considered solutions.
-      </p>
-
-      <div class="location">
-        <div class="location-line"></div>
-        <p>PERTH, WESTERN AUSTRALIA</p>
-      </div>
-    </main>
-
-    <footer class="footer">
-      &copy; SONNEH 2026
-    </footer>
-
+  <div class="artwork" aria-hidden="true">
+    <svg viewBox="0 0 1600 900"
+         preserveAspectRatio="xMidYMid slice">
+      <g id="contours"></g>
+      <g id="fragments"></g>
+    </svg>
   </div>
 
-  <script>
-    (() => {
-      "use strict";
+  <header class="header">
+    <a class="logo" href="index.html"
+       aria-label="SONNEH Home">SONNEH</a>
 
-      const NS = "http://www.w3.org/2000/svg";
-      const topo = document.getElementById("topo");
-      const pieces = document.getElementById("pieces");
-      const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
+    <nav class="navigation"
+         aria-label="Main navigation">
+      <a href="index.html" class="active"
+         aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-      let seed = 20261122;
+  <main class="hero">
+    <p class="eyebrow">
+      CONCEPT DESIGN &amp; DESIGN STRATEGY
+    </p>
 
-      function random() {
-        seed = (seed * 16807) % 2147483647;
-        return (seed - 1) / 2147483646;
-      }
+    <h1>From Complexity to Clarity.</h1>
 
-      function createSVG(tag, attributes, parent) {
-        const el = document.createElementNS(NS, tag);
-        for (const [key, value] of Object.entries(attributes)) {
-          el.setAttribute(key, value);
-        }
-        parent.appendChild(el);
-        return el;
-      }
+    <p class="description">
+      Design thinking that transforms complexity into
+      meaningful spaces and considered solutions.
+    </p>
 
-      const lines = [];
+    <div class="location">
+      <div class="location-line"></div>
+      <p>PERTH, WESTERN AUSTRALIA</p>
+    </div>
+  </main>
 
-      // Organic, irregular topographic lines.
-      for (let i = 0; i < 17; i++) {
-        const y = 240 + i * 19;
-        const variation = Math.sin(i * .55) * 17;
+  <footer class="footer">
+    &copy; SONNEH 2026
+  </footer>
+</div>
 
-        const d = [
-          `M -50 ${y + 35}`,
-          `C 120 ${y - 110 + variation},`,
-          `205 ${y + 105},`,
-          `340 ${y - 35}`,
-          `S 530 ${y - 100 + variation},`,
-          `760 ${y - 85}`
-        ].join(" ");
+<script>
+(() => {
+  "use strict";
 
-        const path = createSVG("path", {
-          d,
-          class: "topo-line"
-        }, topo);
+  const NS = "http://www.w3.org/2000/svg";
+  const contourGroup = document.getElementById("contours");
+  const fragmentGroup = document.getElementById("fragments");
 
-        lines.push(path);
-      }
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-      const fragments = [];
+  const contours = [];
+  const fragments = [];
 
-      // Scattered white marks inspired by the business card.
-      for (let i = 0; i < 46; i++) {
-        const x = 70 + random() * 550;
-        const y = 90 + random() * 480;
-        const length = 7 + random() * 17;
-        const angle = random() * Math.PI * 2;
+  let seed = 14527;
 
-        const targetX = 80 + (i % 12) * 48;
-        const targetY = 390 + Math.floor(i / 12) * 19;
+  function rand() {
+    seed = (seed * 16807) % 2147483647;
+    return (seed - 1) / 2147483646;
+  }
 
-        const path = createSVG("path", {
-          d: `M ${-length / 2} 0 L ${length / 2} 0`,
-          class: "fragment",
-          transform: `translate(${x} ${y}) rotate(${angle * 180 / Math.PI})`
-        }, pieces);
+  function svgElement(tag, attrs, parent) {
+    const element = document.createElementNS(NS, tag);
 
-        fragments.push({
-          el: path,
-          x, y, angle,
-          targetX, targetY
-        });
-      }
+    for (const [name, value] of Object.entries(attrs)) {
+      element.setAttribute(name, value);
+    }
 
-      function smooth(t) {
-        return t * t * (3 - 2 * t);
-      }
+    parent.appendChild(element);
+    return element;
+  }
 
-      function interpolate(a, b, t) {
-        return a + (b - a) * t;
-      }
+  function mix(a, b, t) {
+    return a + (b - a) * t;
+  }
 
-      // 12-second narrative cycle:
-      // 0-3s scattered complexity
-      // 3-8s transformation
-      // 8-11s clarity
-      // 11-12s soft reset
+  function ease(t) {
+    t = Math.max(0, Math.min(1, t));
+    return t * t * (3 - 2 * t);
+  }
 
-      function render(time) {
-        const cycle = (time % 12000) / 12000;
+  // Each contour has two sets of control points:
+  // an irregular beginning and a smooth ending.
+  // This produces an actual geometric transition.
 
-        let clarity;
+  function makeCurve(i, clarity) {
+    const y = 525 + i * 15.5;
 
-        if (cycle < .25) {
-          clarity = 0;
-        } else if (cycle < .67) {
-          clarity = smooth((cycle - .25) / .42);
-        } else if (cycle < .92) {
-          clarity = 1;
-        } else {
-          clarity = 1 - smooth((cycle - .92) / .08);
-        }
+    const initial = [
+      [560, y + 80],
+      [690, y - 80],
+      [750, y + 120],
+      [900, y - 65],
+      [1020, y + 100],
+      [1120, y - 115],
+      [1290, y + 35],
+      [1470, y - 130]
+    ];
 
-        lines.forEach((line, i) => {
-          const opacity = interpolate(.04, .32, clarity);
-          line.style.opacity = opacity;
-          line.setAttribute(
-            "transform",
-            `translate(0 ${Math.sin(i * .5 + clarity * 2) * (1 - clarity) * 12})`
-          );
-        });
+    const ordered = [
+      [360, y + 155],
+      [580, y + 125],
+      [730, y - 45],
+      [900, y - 22],
+      [1050, y + 12],
+      [1110, y + 35],
+      [1230, y - 65],
+      [1450, y - 105]
+    ];
 
-        fragments.forEach((item, i) => {
-          const x = interpolate(item.x, item.targetX, clarity);
-          const y = interpolate(item.y, item.targetY, clarity);
-          const rotation = interpolate(
-            item.angle * 180 / Math.PI,
-            0,
-            clarity
-          );
+    const p = initial.map((point, index) => [
+      mix(point[0], ordered[index][0], clarity),
+      mix(point[1], ordered[index][1], clarity)
+    ]);
 
-          item.el.setAttribute(
-            "transform",
-            `translate(${x} ${y}) rotate(${rotation})`
-          );
+    return [
+      `M ${p[0][0]} ${p[0][1]}`,
+      `C ${p[1][0]} ${p[1][1]},`,
+      `${p[2][0]} ${p[2][1]},`,
+      `${p[3][0]} ${p[3][1]}`,
+      `C ${p[4][0]} ${p[4][1]},`,
+      `${p[5][0]} ${p[5][1]},`,
+      `${p[6][0]} ${p[6][1]}`,
+      `L ${p[7][0]} ${p[7][1]}`
+    ].join(" ");
+  }
 
-          item.el.style.opacity = interpolate(
-            .75,
-            .015,
-            clarity
-          );
-        });
-      }
+  // 15 carefully spaced contours.
+  for (let i = 0; i < 15; i++) {
+    const path = svgElement("path", {
+      class: "contour",
+      d: makeCurve(i, 0)
+    }, contourGroup);
 
-      if (reducedMotion) {
-        render(9600);
-      } else {
-        let start = null;
+    contours.push(path);
+  }
 
-        function animate(timestamp) {
-          if (start === null) start = timestamp;
-          render(timestamp - start);
-          requestAnimationFrame(animate);
-        }
+  // Scattered fragments, inspired by the business card.
+  // Includes straight and curved marks.
 
-        requestAnimationFrame(animate);
-      }
-    })();
-  </script>
+  for (let i = 0; i < 34; i++) {
+    const x = 860 + rand() * 620;
+    const y = 135 + rand() * 400;
+    const length = 8 + rand() * 19;
+    const angle = rand() * 320 - 160;
+    const curved = i % 4 === 0;
+
+    const d = curved
+      ? `M ${-length/2} 4 Q 0 -8 ${length/2} 0`
+      : `M ${-length/2} 0 L ${length/2} 0`;
+
+    const el = svgElement("path", {
+      class: "fragment",
+      d
+    }, fragmentGroup);
+
+    fragments.push({
+      el,
+      x,
+      y,
+      angle,
+      targetX: 1000 + rand() * 300,
+      targetY: 410 + rand() * 160
+    });
+  }
+
+  // One complete cycle lasts 10 seconds:
+  //
+  // 0-2s   Complexity
+  // 2-4s   Transition begins
+  // 4-6s   Lines become ordered
+  // 6-8s   Clarity
+  // 8-10s  Hold, then soft return
+
+  function render(ms) {
+    const seconds = (ms % 10000) / 1000;
+
+    let clarity;
+
+    if (seconds < 2) {
+      clarity = 0;
+    } else if (seconds < 6) {
+      clarity = ease((seconds - 2) / 4);
+    } else if (seconds < 8.5) {
+      clarity = 1;
+    } else {
+      clarity = 1 - ease((seconds - 8.5) / 1.5);
+    }
+
+    contours.forEach((path, i) => {
+      path.setAttribute("d", makeCurve(i, clarity));
+
+      const highlight = i % 4 === 0 ? .53 : .25;
+
+      path.style.opacity = mix(
+        .07,
+        highlight,
+        clarity
+      );
+    });
+
+    fragments.forEach((item, i) => {
+      const t = ease(Math.min(1, clarity * 1.25));
+
+      const x = mix(item.x, item.targetX, t);
+      const y = mix(item.y, item.targetY, t);
+      const angle = mix(item.angle, 0, t);
+
+      item.el.setAttribute(
+        "transform",
+        `translate(${x} ${y}) rotate(${angle})`
+      );
+
+      item.el.style.opacity = Math.max(
+        0,
+        .9 * (1 - t)
+      );
+    });
+  }
+
+  if (reducedMotion) {
+    render(7000);
+  } else {
+    let start = null;
+
+    function animate(timestamp) {
+      if (start === null) start = timestamp;
+
+      render(timestamp - start);
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+  }
+})();
+</script>
+
 </body>
 </html>
