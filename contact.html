@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#00512f">
+  <meta name="theme-color" content="#00512F">
 
-  <title>Contact — SONNEH</title>
+  <title>Contact | SONNEH</title>
+
   <meta name="description" content="Contact SONNEH Design Studio in Perth for design projects, creative collaborations and enquiries.">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261124">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -17,118 +18,133 @@
 
 <body>
 
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html">SONNEH</a>
+  <div class="site contact">
 
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="header">
 
-  <main class="contact-layout">
+      <a class="logo" href="index.html" aria-label="SONNEH Home">
+        SONNEH
+      </a>
 
-    <h1>Let's connect.</h1>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">Studio</a>
+        <a href="contact.html" class="active" aria-current="page">Contact</a>
+      </nav>
 
-    <p class="contact-intro">
-      For project enquiries, creative collaborations or general
-      conversations, we'd love to hear from you.
-    </p>
+    </header>
 
-    <form
-      id="contact-form"
-      class="contact-form"
-      action="https://formspree.io/f/meagzyjb"
-      method="POST"
-    >
+    <main class="contact-layout">
 
-      <div class="form-field">
-        <label for="name">Your name</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Full name"
-          autocomplete="name"
-          required
-        >
-      </div>
+      <h1>Let's connect.</h1>
 
-      <div class="form-field">
-        <label for="email">Email address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="you@example.com"
-          autocomplete="email"
-          required
-        >
-      </div>
+      <p class="contact-intro">
+        For project enquiries, creative collaborations or general
+        conversations, we'd love to hear from you.
+      </p>
 
-      <div class="form-field">
-        <label for="message">Your message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="3"
-          placeholder="Tell us a little about your enquiry..."
-          required
-        ></textarea>
-      </div>
-
-      <input
-        type="hidden"
-        name="_subject"
-        value="New SONNEH Website Enquiry"
+      <form
+        id="contact-form"
+        class="contact-form"
+        action="https://formspree.io/f/meagzyjb"
+        method="POST"
       >
 
-      <button id="send-button" type="submit">
-        Send enquiry
-      </button>
+        <div class="form-field">
+          <label for="name">Your name</label>
 
-      <p
-        id="form-status"
-        class="form-status"
-        role="status"
-        aria-live="polite"
-      ></p>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Full name"
+            autocomplete="name"
+            required
+          >
+        </div>
 
-    </form>
+        <div class="form-field">
+          <label for="email">Email address</label>
 
-    <div class="contact-details">
-      <p>
-        Prefer email?
-        <a href="mailto:info@sonneh.com">info@sonneh.com</a>
-      </p>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
 
-      <p>
-        Instagram:
-        <a
-          href="https://www.instagram.com/sonneh_design/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >@sonneh_design</a>
-      </p>
+        <div class="form-field">
+          <label for="message">Your message</label>
 
-      <p>Perth, Western Australia</p>
-    </div>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Tell us a little about your enquiry..."
+            required
+          ></textarea>
+        </div>
 
-  </main>
+        <input
+          type="hidden"
+          name="_subject"
+          value="New SONNEH Website Enquiry"
+        >
 
-  <footer class="footer">
-    <p>© SONNEH 2026</p>
-  </footer>
+        <button id="send-button" type="submit">
+          Send enquiry
+        </button>
+
+        <p
+          id="form-status"
+          class="form-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+      <div class="contact-details">
+
+        <p>
+          Prefer email?
+          <a href="mailto:info@sonneh.com">
+            info@sonneh.com
+          </a>
+        </p>
+
+        <p>
+          Instagram:
+          <a
+            href="https://www.instagram.com/sonneh_design/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >@sonneh_design</a>
+        </p>
+
+        <p>Perth, Western Australia</p>
+
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      &copy; SONNEH 2026
+    </footer>
+
+  </div>
 
   <script>
+
     const form = document.getElementById("contact-form");
     const statusMessage = document.getElementById("form-status");
     const sendButton = document.getElementById("send-button");
 
     form.addEventListener("submit", async function(event) {
+
       event.preventDefault();
 
       sendButton.disabled = true;
@@ -136,6 +152,7 @@
       statusMessage.textContent = "";
 
       try {
+
         const response = await fetch(form.action, {
           method: "POST",
           body: new FormData(form),
@@ -145,21 +162,33 @@
         });
 
         if (response.ok) {
+
           statusMessage.textContent =
             "Thank you. Your message has been sent successfully.";
+
           form.reset();
+
         } else {
+
           statusMessage.textContent =
             "Your message could not be sent. Please try again.";
+
         }
+
       } catch (error) {
+
         statusMessage.textContent =
           "Connection error. Please try again or email info@sonneh.com.";
+
       } finally {
+
         sendButton.disabled = false;
         sendButton.textContent = "Send enquiry";
+
       }
+
     });
+
   </script>
 
 </body>
