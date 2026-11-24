@@ -6,338 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00512F">
   <meta name="description" content="SONNEH is an independent interior design and design strategy studio based in Perth, Western Australia.">
+
   <title>Studio | SONNEH</title>
 
-  <style>
-    :root {
-      --green: #00512F;
-      --white: #FFFFFF;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      min-height: 100%;
-    }
-
-    body {
-      background: var(--green);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site {
-      min-height: 100svh;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    /* Right-side studio photograph */
-    .site::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 0 41%;
-      background-image: url("studio-photo.webp");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      z-index: -1;
-    }
-
-    /* Left-side brand colour */
-    .site::after {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 41%;
-      background: var(--green);
-      z-index: -1;
-    }
-
-    .header {
-      width: calc(100% - 100px);
-      margin: 0 auto;
-      padding: 27px 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid rgba(255,255,255,.65);
-    }
-
-    .logo {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -1.4px;
-      line-height: 1;
-    }
-
-    .navigation {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-    }
-
-    .navigation a {
-      font-size: 15px;
-      font-weight: 500;
-      opacity: .85;
-      padding-bottom: 6px;
-    }
-
-    .navigation a:hover,
-    .navigation a:focus-visible {
-      opacity: 1;
-    }
-
-    .navigation .active {
-      opacity: 1;
-      border-bottom: 2px solid var(--white);
-    }
-
-    .main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      width: 41%;
-      padding: 48px 36px 55px 5%;
-    }
-
-    .content {
-      width: 100%;
-      max-width: 570px;
-    }
-
-    .eyebrow {
-      margin: 0 0 21px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .24em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(48px, 4.2vw, 64px);
-      line-height: 1.05;
-      font-weight: 700;
-      letter-spacing: -.04em;
-    }
-
-    .line {
-      width: 50px;
-      height: 2px;
-      background: var(--white);
-      margin: 30px 0 27px;
-    }
-
-    h2 {
-      margin: 0 0 17px;
-      font-size: clamp(19px, 1.55vw, 24px);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -.02em;
-    }
-
-    .description {
-      margin: 0;
-      max-width: 510px;
-      font-size: 16px;
-      line-height: 1.65;
-      color: rgba(255,255,255,.94);
-    }
-
-    .founder {
-      margin-top: 43px;
-    }
-
-    .founder-name {
-      margin: 0 0 8px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .20em;
-    }
-
-    .founder-role {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .footer {
-      width: calc(100% - 100px);
-      margin: 0 auto;
-      padding: 16px 0 20px;
-      text-align: right;
-      font-size: 11px;
-      text-shadow: 0 1px 5px rgba(0,0,0,.5);
-    }
-
-    @media (max-width: 1100px) {
-      .site::before {
-        left: 45%;
-      }
-
-      .site::after,
-      .main {
-        width: 45%;
-      }
-
-      .main {
-        padding-right: 25px;
-      }
-
-      h1 {
-        font-size: clamp(44px, 4.8vw, 56px);
-      }
-
-      h2 {
-        font-size: 21px;
-      }
-
-      .description {
-        font-size: 15px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .site {
-        min-height: 100svh;
-      }
-
-      .site::before {
-        inset: auto 0 0 0;
-        height: 52%;
-        background-position: center 45%;
-      }
-
-      .site::after {
-        inset: 0 0 auto 0;
-        width: 100%;
-        height: 52%;
-      }
-
-      .header {
-        width: calc(100% - 36px);
-        padding: 22px 0 17px;
-        gap: 14px;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .navigation {
-        gap: 15px;
-      }
-
-      .navigation a {
-        font-size: 12px;
-      }
-
-      .main {
-        width: 100%;
-        flex: none;
-        display: block;
-        padding: 43px 24px 48px;
-        background: var(--green);
-      }
-
-      .content {
-        max-width: 560px;
-      }
-
-      .eyebrow {
-        font-size: 10px;
-        margin-bottom: 18px;
-      }
-
-      h1 {
-        font-size: clamp(42px, 10vw, 54px);
-      }
-
-      .line {
-        margin: 25px 0 23px;
-      }
-
-      h2 {
-        font-size: clamp(19px, 4.7vw, 23px);
-        margin-bottom: 15px;
-      }
-
-      .description {
-        font-size: 15px;
-        line-height: 1.65;
-      }
-
-      .founder {
-        margin-top: 32px;
-      }
-
-      .founder-name {
-        font-size: 11px;
-      }
-
-      .founder-role {
-        font-size: 13px;
-      }
-
-      .footer {
-        width: calc(100% - 36px);
-        margin-top: auto;
-        min-height: 45vh;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        padding-bottom: 20px;
-      }
-    }
-
-    @media (max-width: 370px) {
-      .logo {
-        font-size: 21px;
-      }
-
-      .navigation {
-        gap: 11px;
-      }
-
-      .navigation a {
-        font-size: 11px;
-      }
-
-      .main {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 19px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20261124">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 
 <body>
-  <div class="site">
+
+  <div class="site studio">
 
     <header class="header">
-      <a href="index.html" class="logo" aria-label="SONNEH Home">
+
+      <a class="logo" href="index.html" aria-label="SONNEH Home">
         SONNEH
       </a>
 
@@ -346,10 +29,12 @@
         <a href="about.html" class="active" aria-current="page">Studio</a>
         <a href="contact.html">Contact</a>
       </nav>
+
     </header>
 
-    <main class="main">
-      <div class="content">
+    <main class="main studio-main">
+
+      <div class="content studio-content">
 
         <p class="eyebrow">THE STUDIO</p>
 
@@ -367,13 +52,17 @@
         </p>
 
         <div class="founder">
+
           <p class="founder-name">AMIR SONNEH</p>
+
           <p class="founder-role">
             Founder / Concept Designer &amp; Design Strategist
           </p>
+
         </div>
 
       </div>
+
     </main>
 
     <footer class="footer">
@@ -381,5 +70,6 @@
     </footer>
 
   </div>
+
 </body>
 </html>
